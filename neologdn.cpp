@@ -1500,7 +1500,7 @@ static const char *__pyx_f[] = {
 struct __pyx_opt_args_8neologdn_shorten_repeat;
 struct __pyx_opt_args_8neologdn_normalize;
 
-/* "neologdn.pyx":110
+/* "neologdn.pyx":113
  * ##################################################
  * 
  * cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):             # <<<<<<<<<<<<<<
@@ -5455,7 +5455,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__520 __pyx_mstate_global->__pyx_codeobj__520
 /* #### Code section: module_code ### */
 
-/* "neologdn.pyx":110
+/* "neologdn.pyx":113
  * ##################################################
  * 
  * cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):             # <<<<<<<<<<<<<<
@@ -5503,7 +5503,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
   }
   __Pyx_INCREF(__pyx_v_text);
 
-  /* "neologdn.pyx":115
+  /* "neologdn.pyx":118
  *     cdef unicode substr, right_substr
  * 
  *     i = 0             # <<<<<<<<<<<<<<
@@ -5512,7 +5512,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
   __pyx_v_i = 0;
 
-  /* "neologdn.pyx":116
+  /* "neologdn.pyx":119
  * 
  *     i = 0
  *     while i < len(text):             # <<<<<<<<<<<<<<
@@ -5522,13 +5522,13 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
   while (1) {
     if (unlikely(__pyx_v_text == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 116, __pyx_L1_error)
+      __PYX_ERR(0, 119, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_text); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_text); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 119, __pyx_L1_error)
     __pyx_t_2 = (__pyx_v_i < __pyx_t_1);
     if (!__pyx_t_2) break;
 
-    /* "neologdn.pyx":117
+    /* "neologdn.pyx":120
  *     i = 0
  *     while i < len(text):
  *         text_length = len(text)             # <<<<<<<<<<<<<<
@@ -5537,12 +5537,12 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
     if (unlikely(__pyx_v_text == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 117, __pyx_L1_error)
+      __PYX_ERR(0, 120, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_text); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_text); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 120, __pyx_L1_error)
     __pyx_v_text_length = __pyx_t_1;
 
-    /* "neologdn.pyx":118
+    /* "neologdn.pyx":121
  *     while i < len(text):
  *         text_length = len(text)
  *         upper_repeat_substr_length = (text_length - i) // 2             # <<<<<<<<<<<<<<
@@ -5551,7 +5551,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
     __pyx_v_upper_repeat_substr_length = __Pyx_div_long((__pyx_v_text_length - __pyx_v_i), 2);
 
-    /* "neologdn.pyx":119
+    /* "neologdn.pyx":122
  *         text_length = len(text)
  *         upper_repeat_substr_length = (text_length - i) // 2
  *         if max_repeat_substr_length and max_repeat_substr_length < upper_repeat_substr_length:             # <<<<<<<<<<<<<<
@@ -5569,7 +5569,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":120
+      /* "neologdn.pyx":123
  *         upper_repeat_substr_length = (text_length - i) // 2
  *         if max_repeat_substr_length and max_repeat_substr_length < upper_repeat_substr_length:
  *             upper_repeat_substr_length = max_repeat_substr_length + 1             # <<<<<<<<<<<<<<
@@ -5578,7 +5578,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       __pyx_v_upper_repeat_substr_length = (__pyx_v_max_repeat_substr_length + 1);
 
-      /* "neologdn.pyx":119
+      /* "neologdn.pyx":122
  *         text_length = len(text)
  *         upper_repeat_substr_length = (text_length - i) // 2
  *         if max_repeat_substr_length and max_repeat_substr_length < upper_repeat_substr_length:             # <<<<<<<<<<<<<<
@@ -5587,7 +5587,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
     }
 
-    /* "neologdn.pyx":122
+    /* "neologdn.pyx":125
  *             upper_repeat_substr_length = max_repeat_substr_length + 1
  * 
  *         for repeat_length in range(1, upper_repeat_substr_length):             # <<<<<<<<<<<<<<
@@ -5599,7 +5599,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
     for (__pyx_t_6 = 1; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_repeat_length = __pyx_t_6;
 
-      /* "neologdn.pyx":123
+      /* "neologdn.pyx":126
  * 
  *         for repeat_length in range(1, upper_repeat_substr_length):
  *             substr = text[i : i + repeat_length]             # <<<<<<<<<<<<<<
@@ -5608,14 +5608,14 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       if (unlikely(__pyx_v_text == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 123, __pyx_L1_error)
+        __PYX_ERR(0, 126, __pyx_L1_error)
       }
-      __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_i, (__pyx_v_i + __pyx_v_repeat_length)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 123, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_i, (__pyx_v_i + __pyx_v_repeat_length)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_XDECREF_SET(__pyx_v_substr, ((PyObject*)__pyx_t_7));
       __pyx_t_7 = 0;
 
-      /* "neologdn.pyx":124
+      /* "neologdn.pyx":127
  *         for repeat_length in range(1, upper_repeat_substr_length):
  *             substr = text[i : i + repeat_length]
  *             right_start = i + repeat_length             # <<<<<<<<<<<<<<
@@ -5624,7 +5624,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       __pyx_v_right_start = (__pyx_v_i + __pyx_v_repeat_length);
 
-      /* "neologdn.pyx":125
+      /* "neologdn.pyx":128
  *             substr = text[i : i + repeat_length]
  *             right_start = i + repeat_length
  *             right_end = right_start + repeat_length             # <<<<<<<<<<<<<<
@@ -5633,7 +5633,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       __pyx_v_right_end = (__pyx_v_right_start + __pyx_v_repeat_length);
 
-      /* "neologdn.pyx":126
+      /* "neologdn.pyx":129
  *             right_start = i + repeat_length
  *             right_end = right_start + repeat_length
  *             right_substr = text[right_start:right_end]             # <<<<<<<<<<<<<<
@@ -5642,14 +5642,14 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       if (unlikely(__pyx_v_text == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 126, __pyx_L1_error)
+        __PYX_ERR(0, 129, __pyx_L1_error)
       }
-      __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_right_start, __pyx_v_right_end); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_right_start, __pyx_v_right_end); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 129, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_XDECREF_SET(__pyx_v_right_substr, ((PyObject*)__pyx_t_7));
       __pyx_t_7 = 0;
 
-      /* "neologdn.pyx":127
+      /* "neologdn.pyx":130
  *             right_end = right_start + repeat_length
  *             right_substr = text[right_start:right_end]
  *             num_repeat_substrs = 1             # <<<<<<<<<<<<<<
@@ -5658,7 +5658,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
       __pyx_v_num_repeat_substrs = 1;
 
-      /* "neologdn.pyx":128
+      /* "neologdn.pyx":131
  *             right_substr = text[right_start:right_end]
  *             num_repeat_substrs = 1
  *             while substr == right_substr and right_end <= text_length:             # <<<<<<<<<<<<<<
@@ -5666,7 +5666,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  *                 right_start += repeat_length
  */
       while (1) {
-        __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_substr, __pyx_v_right_substr, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 128, __pyx_L1_error)
+        __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_substr, __pyx_v_right_substr, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 131, __pyx_L1_error)
         if (__pyx_t_3) {
         } else {
           __pyx_t_2 = __pyx_t_3;
@@ -5677,7 +5677,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
         __pyx_L12_bool_binop_done:;
         if (!__pyx_t_2) break;
 
-        /* "neologdn.pyx":129
+        /* "neologdn.pyx":132
  *             num_repeat_substrs = 1
  *             while substr == right_substr and right_end <= text_length:
  *                 num_repeat_substrs += 1             # <<<<<<<<<<<<<<
@@ -5686,7 +5686,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         __pyx_v_num_repeat_substrs = (__pyx_v_num_repeat_substrs + 1);
 
-        /* "neologdn.pyx":130
+        /* "neologdn.pyx":133
  *             while substr == right_substr and right_end <= text_length:
  *                 num_repeat_substrs += 1
  *                 right_start += repeat_length             # <<<<<<<<<<<<<<
@@ -5695,7 +5695,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         __pyx_v_right_start = (__pyx_v_right_start + __pyx_v_repeat_length);
 
-        /* "neologdn.pyx":131
+        /* "neologdn.pyx":134
  *                 num_repeat_substrs += 1
  *                 right_start += repeat_length
  *                 right_end += repeat_length             # <<<<<<<<<<<<<<
@@ -5704,7 +5704,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         __pyx_v_right_end = (__pyx_v_right_end + __pyx_v_repeat_length);
 
-        /* "neologdn.pyx":132
+        /* "neologdn.pyx":135
  *                 right_start += repeat_length
  *                 right_end += repeat_length
  *                 right_substr = text[right_start:right_end]             # <<<<<<<<<<<<<<
@@ -5713,15 +5713,15 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         if (unlikely(__pyx_v_text == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-          __PYX_ERR(0, 132, __pyx_L1_error)
+          __PYX_ERR(0, 135, __pyx_L1_error)
         }
-        __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_right_start, __pyx_v_right_end); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, __pyx_v_right_start, __pyx_v_right_end); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 135, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF_SET(__pyx_v_right_substr, ((PyObject*)__pyx_t_7));
         __pyx_t_7 = 0;
       }
 
-      /* "neologdn.pyx":133
+      /* "neologdn.pyx":136
  *                 right_end += repeat_length
  *                 right_substr = text[right_start:right_end]
  *             if num_repeat_substrs > repeat_threshould:             # <<<<<<<<<<<<<<
@@ -5731,7 +5731,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
       __pyx_t_2 = (__pyx_v_num_repeat_substrs > __pyx_v_repeat_threshould);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":134
+        /* "neologdn.pyx":137
  *                 right_substr = text[right_start:right_end]
  *             if num_repeat_substrs > repeat_threshould:
  *                 text = (text[: i + repeat_length * repeat_threshould] +             # <<<<<<<<<<<<<<
@@ -5740,12 +5740,12 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         if (unlikely(__pyx_v_text == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-          __PYX_ERR(0, 134, __pyx_L1_error)
+          __PYX_ERR(0, 137, __pyx_L1_error)
         }
-        __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, 0, (__pyx_v_i + (__pyx_v_repeat_length * __pyx_v_repeat_threshould))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 134, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyUnicode_Substring(__pyx_v_text, 0, (__pyx_v_i + (__pyx_v_repeat_length * __pyx_v_repeat_threshould))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
 
-        /* "neologdn.pyx":135
+        /* "neologdn.pyx":138
  *             if num_repeat_substrs > repeat_threshould:
  *                 text = (text[: i + repeat_length * repeat_threshould] +
  *                         text[i + repeat_length * num_repeat_substrs :])             # <<<<<<<<<<<<<<
@@ -5754,26 +5754,26 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
  */
         if (unlikely(__pyx_v_text == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-          __PYX_ERR(0, 135, __pyx_L1_error)
+          __PYX_ERR(0, 138, __pyx_L1_error)
         }
-        __pyx_t_8 = __Pyx_PyUnicode_Substring(__pyx_v_text, (__pyx_v_i + (__pyx_v_repeat_length * __pyx_v_num_repeat_substrs)), PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 135, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyUnicode_Substring(__pyx_v_text, (__pyx_v_i + (__pyx_v_repeat_length * __pyx_v_num_repeat_substrs)), PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 138, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
 
-        /* "neologdn.pyx":134
+        /* "neologdn.pyx":137
  *                 right_substr = text[right_start:right_end]
  *             if num_repeat_substrs > repeat_threshould:
  *                 text = (text[: i + repeat_length * repeat_threshould] +             # <<<<<<<<<<<<<<
  *                         text[i + repeat_length * num_repeat_substrs :])
  *         i += 1
  */
-        __pyx_t_9 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 134, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF_SET(__pyx_v_text, ((PyObject*)__pyx_t_9));
         __pyx_t_9 = 0;
 
-        /* "neologdn.pyx":133
+        /* "neologdn.pyx":136
  *                 right_end += repeat_length
  *                 right_substr = text[right_start:right_end]
  *             if num_repeat_substrs > repeat_threshould:             # <<<<<<<<<<<<<<
@@ -5783,7 +5783,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
       }
     }
 
-    /* "neologdn.pyx":136
+    /* "neologdn.pyx":139
  *                 text = (text[: i + repeat_length * repeat_threshould] +
  *                         text[i + repeat_length * num_repeat_substrs :])
  *         i += 1             # <<<<<<<<<<<<<<
@@ -5793,7 +5793,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
     __pyx_v_i = (__pyx_v_i + 1);
   }
 
-  /* "neologdn.pyx":137
+  /* "neologdn.pyx":140
  *                         text[i + repeat_length * num_repeat_substrs :])
  *         i += 1
  *     return text             # <<<<<<<<<<<<<<
@@ -5805,7 +5805,7 @@ static PyObject *__pyx_f_8neologdn_shorten_repeat(PyObject *__pyx_v_text, int __
   __pyx_r = __pyx_v_text;
   goto __pyx_L0;
 
-  /* "neologdn.pyx":110
+  /* "neologdn.pyx":113
  * ##################################################
  * 
  * cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):             # <<<<<<<<<<<<<<
@@ -5888,7 +5888,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -5896,21 +5896,21 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("shorten_repeat", 0, 2, 3, 1); __PYX_ERR(0, 110, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("shorten_repeat", 0, 2, 3, 1); __PYX_ERR(0, 113, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max_repeat_substr_length);
           if (value) { values[2] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "shorten_repeat") < 0)) __PYX_ERR(0, 110, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "shorten_repeat") < 0)) __PYX_ERR(0, 113, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -5923,16 +5923,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
     }
     __pyx_v_text = ((PyObject*)values[0]);
-    __pyx_v_repeat_threshould = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_repeat_threshould == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+    __pyx_v_repeat_threshould = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_repeat_threshould == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_max_repeat_substr_length = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_max_repeat_substr_length == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+      __pyx_v_max_repeat_substr_length = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_max_repeat_substr_length == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
     } else {
       __pyx_v_max_repeat_substr_length = ((int)8);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("shorten_repeat", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 110, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("shorten_repeat", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 113, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5946,7 +5946,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyUnicode_Type), 1, "text", 1))) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyUnicode_Type), 1, "text", 1))) __PYX_ERR(0, 113, __pyx_L1_error)
   __pyx_r = __pyx_pf_8neologdn_shorten_repeat(__pyx_self, __pyx_v_text, __pyx_v_repeat_threshould, __pyx_v_max_repeat_substr_length);
 
   /* function exit code */
@@ -5976,7 +5976,7 @@ static PyObject *__pyx_pf_8neologdn_shorten_repeat(CYTHON_UNUSED PyObject *__pyx
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.max_repeat_substr_length = __pyx_v_max_repeat_substr_length;
-  __pyx_t_1 = __pyx_f_8neologdn_shorten_repeat(__pyx_v_text, __pyx_v_repeat_threshould, 0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8neologdn_shorten_repeat(__pyx_v_text, __pyx_v_repeat_threshould, 0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6069,8 +6069,8 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  *     Then build the final string with PyUnicode_FromKindAndData.
  *     """
  *     cdef Py_ssize_t length = len(text)             # <<<<<<<<<<<<<<
- * 
- *     # Allocate buffer with length+1 in case you want a trailing sentinel
+ *     # Allocate buffer with length+1 for a sentinel
+ *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
  */
   if (unlikely(__pyx_v_text == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
@@ -6079,17 +6079,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_text); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 157, __pyx_L1_error)
   __pyx_v_length = __pyx_t_1;
 
-  /* "neologdn.pyx":160
- * 
- *     # Allocate buffer with length+1 in case you want a trailing sentinel
+  /* "neologdn.pyx":159
+ *     cdef Py_ssize_t length = len(text)
+ *     # Allocate buffer with length+1 for a sentinel
  *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))             # <<<<<<<<<<<<<<
  *     if not buf:
  *         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")
  */
   __pyx_v_buf = ((Py_UCS4 *)malloc(((sizeof(Py_UCS4)) * (__pyx_v_length + 1))));
 
-  /* "neologdn.pyx":161
- *     # Allocate buffer with length+1 in case you want a trailing sentinel
+  /* "neologdn.pyx":160
+ *     # Allocate buffer with length+1 for a sentinel
  *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
  *     if not buf:             # <<<<<<<<<<<<<<
  *         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")
@@ -6098,21 +6098,21 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_t_2 = (!(__pyx_v_buf != 0));
   if (unlikely(__pyx_t_2)) {
 
-    /* "neologdn.pyx":162
+    /* "neologdn.pyx":161
  *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
  *     if not buf:
  *         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")             # <<<<<<<<<<<<<<
  * 
- *     # c_prev is an int for easy use with chr() or membership checks
+ *     # c_prev is an int for easy use with chr() and membership checks.
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 162, __pyx_L1_error)
+    __PYX_ERR(0, 161, __pyx_L1_error)
 
-    /* "neologdn.pyx":161
- *     # Allocate buffer with length+1 in case you want a trailing sentinel
+    /* "neologdn.pyx":160
+ *     # Allocate buffer with length+1 for a sentinel
  *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
  *     if not buf:             # <<<<<<<<<<<<<<
  *         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")
@@ -6120,16 +6120,16 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   }
 
-  /* "neologdn.pyx":165
+  /* "neologdn.pyx":164
  * 
- *     # c_prev is an int for easy use with chr() or membership checks
+ *     # c_prev is an int for easy use with chr() and membership checks.
  *     cdef int c_prev = 0             # <<<<<<<<<<<<<<
  *     cdef Py_UCS4 c
  *     cdef int pos = 0
  */
   __pyx_v_c_prev = 0;
 
-  /* "neologdn.pyx":167
+  /* "neologdn.pyx":166
  *     cdef int c_prev = 0
  *     cdef Py_UCS4 c
  *     cdef int pos = 0             # <<<<<<<<<<<<<<
@@ -6138,7 +6138,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   __pyx_v_pos = 0;
 
-  /* "neologdn.pyx":168
+  /* "neologdn.pyx":167
  *     cdef Py_UCS4 c
  *     cdef int pos = 0
  *     cdef bint lattin_space = False             # <<<<<<<<<<<<<<
@@ -6147,64 +6147,64 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   __pyx_v_lattin_space = 0;
 
-  /* "neologdn.pyx":170
+  /* "neologdn.pyx":169
  *     cdef bint lattin_space = False
  * 
  *     for ch in text:             # <<<<<<<<<<<<<<
- *         c = <Py_UCS4> ord(ch)
+ *         c = <Py_UCS4>(ord(ch))
  * 
  */
   if (unlikely(__pyx_v_text == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' is not iterable");
-    __PYX_ERR(0, 170, __pyx_L1_error)
+    __PYX_ERR(0, 169, __pyx_L1_error)
   }
   __Pyx_INCREF(__pyx_v_text);
   __pyx_t_4 = __pyx_v_text;
-  __pyx_t_8 = __Pyx_init_unicode_iteration(__pyx_t_4, (&__pyx_t_5), (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_init_unicode_iteration(__pyx_t_4, (&__pyx_t_5), (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 169, __pyx_L1_error)
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_5; __pyx_t_9++) {
     __pyx_t_1 = __pyx_t_9;
     __pyx_v_ch = __Pyx_PyUnicode_READ(__pyx_t_7, __pyx_t_6, __pyx_t_1);
 
-    /* "neologdn.pyx":171
+    /* "neologdn.pyx":170
  * 
  *     for ch in text:
- *         c = <Py_UCS4> ord(ch)             # <<<<<<<<<<<<<<
+ *         c = <Py_UCS4>(ord(ch))             # <<<<<<<<<<<<<<
  * 
  *         # 1) If the character is a space
  */
     __pyx_v_c = ((Py_UCS4)__Pyx_long_cast(__pyx_v_ch));
 
-    /* "neologdn.pyx":174
+    /* "neologdn.pyx":173
  * 
  *         # 1) If the character is a space
  *         if ch in SPACE:             # <<<<<<<<<<<<<<
- *             c = <Py_UCS4> ord(' ')
- *             # Compare with c_prev as int
+ *             c = <Py_UCS4>(ord(' '))
+ *             # Compare with previous char from the buffer.
  */
-    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_SPACE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 174, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_SPACE); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 173, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 174, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 173, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":175
+      /* "neologdn.pyx":174
  *         # 1) If the character is a space
  *         if ch in SPACE:
- *             c = <Py_UCS4> ord(' ')             # <<<<<<<<<<<<<<
- *             # Compare with c_prev as int
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
+ *             c = <Py_UCS4>(ord(' '))             # <<<<<<<<<<<<<<
+ *             # Compare with previous char from the buffer.
+ *             if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
  */
       __pyx_v_c = ((Py_UCS4)32);
 
-      /* "neologdn.pyx":177
- *             c = <Py_UCS4> ord(' ')
- *             # Compare with c_prev as int
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
- *                 # skip repeated space
- *                 if remove_space or chr(c_prev) in blocks:
+      /* "neologdn.pyx":176
+ *             c = <Py_UCS4>(ord(' '))
+ *             # Compare with previous char from the buffer.
+ *             if pos > 0 and (<int> buf[pos - 1]) == ord(' '):             # <<<<<<<<<<<<<<
+ *                 # Skip repeated space if removal is enabled or previous is in blocks.
+ *                 if remove_space or (chr(c_prev) in blocks):
  */
       __pyx_t_11 = (__pyx_v_pos > 0);
       if (__pyx_t_11) {
@@ -6217,64 +6217,64 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":179
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
- *                 # skip repeated space
- *                 if remove_space or chr(c_prev) in blocks:             # <<<<<<<<<<<<<<
+        /* "neologdn.pyx":178
+ *             if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
+ *                 # Skip repeated space if removal is enabled or previous is in blocks.
+ *                 if remove_space or (chr(c_prev) in blocks):             # <<<<<<<<<<<<<<
  *                     continue
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
  */
         if (!__pyx_v_remove_space) {
         } else {
           __pyx_t_2 = __pyx_v_remove_space;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 179, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 179, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_blocks); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 179, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_blocks); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 179, __pyx_L1_error)
+        __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_2 = __pyx_t_11;
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "neologdn.pyx":180
- *                 # skip repeated space
- *                 if remove_space or chr(c_prev) in blocks:
+          /* "neologdn.pyx":179
+ *                 # Skip repeated space if removal is enabled or previous is in blocks.
+ *                 if remove_space or (chr(c_prev) in blocks):
  *                     continue             # <<<<<<<<<<<<<<
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
  *                 lattin_space = True
  */
           goto __pyx_L4_continue;
 
-          /* "neologdn.pyx":179
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
- *                 # skip repeated space
- *                 if remove_space or chr(c_prev) in blocks:             # <<<<<<<<<<<<<<
+          /* "neologdn.pyx":178
+ *             if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
+ *                 # Skip repeated space if removal is enabled or previous is in blocks.
+ *                 if remove_space or (chr(c_prev) in blocks):             # <<<<<<<<<<<<<<
  *                     continue
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
  */
         }
 
-        /* "neologdn.pyx":177
- *             c = <Py_UCS4> ord(' ')
- *             # Compare with c_prev as int
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
- *                 # skip repeated space
- *                 if remove_space or chr(c_prev) in blocks:
+        /* "neologdn.pyx":176
+ *             c = <Py_UCS4>(ord(' '))
+ *             # Compare with previous char from the buffer.
+ *             if pos > 0 and (<int> buf[pos - 1]) == ord(' '):             # <<<<<<<<<<<<<<
+ *                 # Skip repeated space if removal is enabled or previous is in blocks.
+ *                 if remove_space or (chr(c_prev) in blocks):
  */
         goto __pyx_L7;
       }
 
-      /* "neologdn.pyx":181
- *                 if remove_space or chr(c_prev) in blocks:
+      /* "neologdn.pyx":180
+ *                 if remove_space or (chr(c_prev) in blocks):
  *                     continue
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:             # <<<<<<<<<<<<<<
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):             # <<<<<<<<<<<<<<
  *                 lattin_space = True
  *                 buf[pos] = c
  */
@@ -6290,31 +6290,31 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         __pyx_t_2 = __pyx_t_11;
         goto __pyx_L13_bool_binop_done;
       }
-      __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 181, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 180, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 180, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_basic_latin); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 181, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_basic_latin); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 180, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 181, __pyx_L1_error)
+      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 180, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_2 = __pyx_t_11;
       __pyx_L13_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":182
+        /* "neologdn.pyx":181
  *                     continue
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
  *                 lattin_space = True             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             elif remove_space and pos > 0:
  */
         __pyx_v_lattin_space = 1;
 
-        /* "neologdn.pyx":183
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:
+        /* "neologdn.pyx":182
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
  *                 lattin_space = True
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  *             elif remove_space and pos > 0:
@@ -6322,17 +6322,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":181
- *                 if remove_space or chr(c_prev) in blocks:
+        /* "neologdn.pyx":180
+ *                 if remove_space or (chr(c_prev) in blocks):
  *                     continue
- *             elif c_prev != ord('*') and pos > 0 and chr(c_prev) in basic_latin:             # <<<<<<<<<<<<<<
+ *             elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):             # <<<<<<<<<<<<<<
  *                 lattin_space = True
  *                 buf[pos] = c
  */
         goto __pyx_L7;
       }
 
-      /* "neologdn.pyx":184
+      /* "neologdn.pyx":183
  *                 lattin_space = True
  *                 buf[pos] = c
  *             elif remove_space and pos > 0:             # <<<<<<<<<<<<<<
@@ -6349,7 +6349,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_L16_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":185
+        /* "neologdn.pyx":184
  *                 buf[pos] = c
  *             elif remove_space and pos > 0:
  *                 pos -= 1             # <<<<<<<<<<<<<<
@@ -6358,7 +6358,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":184
+        /* "neologdn.pyx":183
  *                 lattin_space = True
  *                 buf[pos] = c
  *             elif remove_space and pos > 0:             # <<<<<<<<<<<<<<
@@ -6368,46 +6368,46 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         goto __pyx_L7;
       }
 
-      /* "neologdn.pyx":187
+      /* "neologdn.pyx":186
  *                 pos -= 1
  *             else:
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
- *         # 2) Hyphens => unify to '-'
+ *         # 2) Hyphens: unify to '-'
  */
       /*else*/ {
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
       __pyx_L7:;
 
-      /* "neologdn.pyx":174
+      /* "neologdn.pyx":173
  * 
  *         # 1) If the character is a space
  *         if ch in SPACE:             # <<<<<<<<<<<<<<
- *             c = <Py_UCS4> ord(' ')
- *             # Compare with c_prev as int
+ *             c = <Py_UCS4>(ord(' '))
+ *             # Compare with previous char from the buffer.
  */
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":190
+    /* "neologdn.pyx":189
  * 
- *         # 2) Hyphens => unify to '-'
+ *         # 2) Hyphens: unify to '-'
  *         elif ch in HIPHENS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord('-'):
  *                 continue
  */
-    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 190, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_HIPHENS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_HIPHENS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 190, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":191
- *         # 2) Hyphens => unify to '-'
+      /* "neologdn.pyx":190
+ *         # 2) Hyphens: unify to '-'
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):             # <<<<<<<<<<<<<<
  *                 continue
@@ -6416,17 +6416,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_t_2 = (__pyx_v_c_prev == 45);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":192
+        /* "neologdn.pyx":191
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):
  *                 continue             # <<<<<<<<<<<<<<
  *             else:
- *                 c = <Py_UCS4> ord('-')
+ *                 c = <Py_UCS4>(ord('-'))
  */
         goto __pyx_L4_continue;
 
-        /* "neologdn.pyx":191
- *         # 2) Hyphens => unify to '-'
+        /* "neologdn.pyx":190
+ *         # 2) Hyphens: unify to '-'
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):             # <<<<<<<<<<<<<<
  *                 continue
@@ -6434,29 +6434,29 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
       }
 
-      /* "neologdn.pyx":194
+      /* "neologdn.pyx":193
  *                 continue
  *             else:
- *                 c = <Py_UCS4> ord('-')             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord('-'))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  * 
  */
       /*else*/ {
         __pyx_v_c = ((Py_UCS4)45);
 
-        /* "neologdn.pyx":195
+        /* "neologdn.pyx":194
  *             else:
- *                 c = <Py_UCS4> ord('-')
+ *                 c = <Py_UCS4>(ord('-'))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
- *         # 3) Choonpus => unify to ''
+ *         # 3) Choonpus: unify to ''
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
 
-      /* "neologdn.pyx":190
+      /* "neologdn.pyx":189
  * 
- *         # 2) Hyphens => unify to '-'
+ *         # 2) Hyphens: unify to '-'
  *         elif ch in HIPHENS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord('-'):
  *                 continue
@@ -6464,24 +6464,24 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":198
+    /* "neologdn.pyx":197
  * 
- *         # 3) Choonpus => unify to ''
+ *         # 3) Choonpus: unify to ''
  *         elif ch in CHOONPUS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord(''):
  *                 continue
  */
-    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 198, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_CHOONPUS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 198, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_CHOONPUS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 197, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 198, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 197, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":199
- *         # 3) Choonpus => unify to ''
+      /* "neologdn.pyx":198
+ *         # 3) Choonpus: unify to ''
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):             # <<<<<<<<<<<<<<
  *                 continue
@@ -6490,17 +6490,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_t_2 = (__pyx_v_c_prev == 0x30FC);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":200
+        /* "neologdn.pyx":199
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):
  *                 continue             # <<<<<<<<<<<<<<
  *             else:
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  */
         goto __pyx_L4_continue;
 
-        /* "neologdn.pyx":199
- *         # 3) Choonpus => unify to ''
+        /* "neologdn.pyx":198
+ *         # 3) Choonpus: unify to ''
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):             # <<<<<<<<<<<<<<
  *                 continue
@@ -6508,29 +6508,29 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
       }
 
-      /* "neologdn.pyx":202
+      /* "neologdn.pyx":201
  *                 continue
  *             else:
- *                 c = <Py_UCS4> ord('')             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord(''))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  * 
  */
       /*else*/ {
         __pyx_v_c = ((Py_UCS4)0x30FC);
 
-        /* "neologdn.pyx":203
+        /* "neologdn.pyx":202
  *             else:
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
- *         # 4) Tildes => depends on tilde argument
+ *         # 4) Tildes: based on tilde argument
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
 
-      /* "neologdn.pyx":198
+      /* "neologdn.pyx":197
  * 
- *         # 3) Choonpus => unify to ''
+ *         # 3) Choonpus: unify to ''
  *         elif ch in CHOONPUS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord(''):
  *                 continue
@@ -6538,43 +6538,43 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":206
+    /* "neologdn.pyx":205
  * 
- *         # 4) Tildes => depends on tilde argument
+ *         # 4) Tildes: based on tilde argument
  *         elif ch in TILDES:             # <<<<<<<<<<<<<<
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  */
-    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_TILDES); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_TILDES); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":207
- *         # 4) Tildes => depends on tilde argument
+      /* "neologdn.pyx":206
+ *         # 4) Tildes: based on tilde argument
  *         elif ch in TILDES:
  *             if tilde == u'ignore':             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             elif tilde == u'normalize':
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_ignore, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 207, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_ignore, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 206, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":208
+        /* "neologdn.pyx":207
  *         elif ch in TILDES:
  *             if tilde == u'ignore':
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  *             elif tilde == u'normalize':
- *                 c = <Py_UCS4> ord('~')
+ *                 c = <Py_UCS4>(ord('~'))
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":207
- *         # 4) Tildes => depends on tilde argument
+        /* "neologdn.pyx":206
+ *         # 4) Tildes: based on tilde argument
  *         elif ch in TILDES:
  *             if tilde == u'ignore':             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
@@ -6583,97 +6583,97 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         goto __pyx_L20;
       }
 
-      /* "neologdn.pyx":209
+      /* "neologdn.pyx":208
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  *             elif tilde == u'normalize':             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord('~')
+ *                 c = <Py_UCS4>(ord('~'))
  *                 buf[pos] = c
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 209, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 208, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":210
+        /* "neologdn.pyx":209
  *                 buf[pos] = c
  *             elif tilde == u'normalize':
- *                 c = <Py_UCS4> ord('~')             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord('~'))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':
  */
         __pyx_v_c = ((Py_UCS4)0x7E);
 
-        /* "neologdn.pyx":211
+        /* "neologdn.pyx":210
  *             elif tilde == u'normalize':
- *                 c = <Py_UCS4> ord('~')
+ *                 c = <Py_UCS4>(ord('~'))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  *             elif tilde == u'normalize_zenkaku':
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":209
+        /* "neologdn.pyx":208
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  *             elif tilde == u'normalize':             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord('~')
+ *                 c = <Py_UCS4>(ord('~'))
  *                 buf[pos] = c
  */
         goto __pyx_L20;
       }
 
-      /* "neologdn.pyx":212
- *                 c = <Py_UCS4> ord('~')
+      /* "neologdn.pyx":211
+ *                 c = <Py_UCS4>(ord('~'))
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  *                 buf[pos] = c
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize_zenkaku, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 212, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize_zenkaku, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 211, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":213
+        /* "neologdn.pyx":212
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':
- *                 c = <Py_UCS4> ord('')             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord(''))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             else:
  */
         __pyx_v_c = ((Py_UCS4)0x301C);
 
-        /* "neologdn.pyx":214
+        /* "neologdn.pyx":213
  *             elif tilde == u'normalize_zenkaku':
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  *             else:
- *                 # tilde=='remove'
+ *                 continue
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":212
- *                 c = <Py_UCS4> ord('~')
+        /* "neologdn.pyx":211
+ *                 c = <Py_UCS4>(ord('~'))
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord('')
+ *                 c = <Py_UCS4>(ord(''))
  *                 buf[pos] = c
  */
         goto __pyx_L20;
       }
 
-      /* "neologdn.pyx":217
+      /* "neologdn.pyx":215
+ *                 buf[pos] = c
  *             else:
- *                 # tilde=='remove'
  *                 continue             # <<<<<<<<<<<<<<
  * 
- *         # 5) Otherwise => conversions
+ *         # 5) Otherwise: perform conversion
  */
       /*else*/ {
         goto __pyx_L4_continue;
       }
       __pyx_L20:;
 
-      /* "neologdn.pyx":206
+      /* "neologdn.pyx":205
  * 
- *         # 4) Tildes => depends on tilde argument
+ *         # 4) Tildes: based on tilde argument
  *         elif ch in TILDES:             # <<<<<<<<<<<<<<
  *             if tilde == u'ignore':
  *                 buf[pos] = c
@@ -6681,55 +6681,55 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":221
- *         # 5) Otherwise => conversions
+    /* "neologdn.pyx":219
+ *         # 5) Otherwise: perform conversion
  *         else:
  *             if ch in conversion_map:             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord(conversion_map[ch])
- * 
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):
  */
     /*else*/ {
-      __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 221, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 221, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":222
+        /* "neologdn.pyx":220
  *         else:
  *             if ch in conversion_map:
- *                 c = <Py_UCS4> ord(conversion_map[ch])             # <<<<<<<<<<<<<<
- * 
- *             if c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_ten_map:
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))             # <<<<<<<<<<<<<<
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):
+ *                 pos -= 1
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 220, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 220, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_12 = __Pyx_PyObject_Dict_GetItem(__pyx_t_10, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_Dict_GetItem(__pyx_t_10, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 220, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_12); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_12); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 220, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_c = ((Py_UCS4)__pyx_t_13);
 
-        /* "neologdn.pyx":221
- *         # 5) Otherwise => conversions
+        /* "neologdn.pyx":219
+ *         # 5) Otherwise: perform conversion
  *         else:
  *             if ch in conversion_map:             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord(conversion_map[ch])
- * 
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):
  */
       }
 
-      /* "neologdn.pyx":224
- *                 c = <Py_UCS4> ord(conversion_map[ch])
- * 
- *             if c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_ten_map:             # <<<<<<<<<<<<<<
+      /* "neologdn.pyx":221
+ *             if ch in conversion_map:
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 combined = kana_ten_map[chr(c_prev)]
  */
@@ -6745,86 +6745,86 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         __pyx_t_2 = __pyx_t_11;
         goto __pyx_L23_bool_binop_done;
       }
-      __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 221, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 221, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 221, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_2 = __pyx_t_11;
       __pyx_L23_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":225
- * 
- *             if c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_ten_map:
+        /* "neologdn.pyx":222
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):
  *                 pos -= 1             # <<<<<<<<<<<<<<
  *                 combined = kana_ten_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":226
- *             if c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_ten_map:
+        /* "neologdn.pyx":223
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):
  *                 pos -= 1
  *                 combined = kana_ten_map[chr(c_prev)]             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 226, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 226, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_12, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_12, __pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_XDECREF_SET(__pyx_v_combined, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "neologdn.pyx":227
+        /* "neologdn.pyx":224
  *                 pos -= 1
  *                 combined = kana_ten_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord(combined[0]))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):
  */
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_combined, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 227, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_combined, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_3); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 227, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_3); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 224, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_v_c = ((Py_UCS4)__pyx_t_13);
 
-        /* "neologdn.pyx":228
+        /* "neologdn.pyx":225
  *                 combined = kana_ten_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):
  *                 pos -= 1
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":224
- *                 c = <Py_UCS4> ord(conversion_map[ch])
- * 
- *             if c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_ten_map:             # <<<<<<<<<<<<<<
+        /* "neologdn.pyx":221
+ *             if ch in conversion_map:
+ *                 c = <Py_UCS4>(ord(conversion_map[ch]))
+ *             if c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_ten_map):             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 combined = kana_ten_map[chr(c_prev)]
  */
         goto __pyx_L22;
       }
 
-      /* "neologdn.pyx":229
- *                 c = <Py_UCS4> ord(combined[0])
+      /* "neologdn.pyx":226
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:             # <<<<<<<<<<<<<<
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 combined = kana_maru_map[chr(c_prev)]
  */
@@ -6840,86 +6840,86 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         __pyx_t_2 = __pyx_t_11;
         goto __pyx_L26_bool_binop_done;
       }
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_2 = __pyx_t_11;
       __pyx_L26_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":230
+        /* "neologdn.pyx":227
  *                 buf[pos] = c
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):
  *                 pos -= 1             # <<<<<<<<<<<<<<
  *                 combined = kana_maru_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":231
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:
+        /* "neologdn.pyx":228
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):
  *                 pos -= 1
  *                 combined = kana_maru_map[chr(c_prev)]             # <<<<<<<<<<<<<<
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 228, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_c_prev); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 228, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 228, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 228, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_combined, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "neologdn.pyx":232
+        /* "neologdn.pyx":229
  *                 pos -= 1
  *                 combined = kana_maru_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])             # <<<<<<<<<<<<<<
+ *                 c = <Py_UCS4>(ord(combined[0]))             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             else:
  */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_combined, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 232, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_combined, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 229, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_10); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 232, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyObject_Ord(__pyx_t_10); if (unlikely(__pyx_t_13 == ((long)(long)(Py_UCS4)-1))) __PYX_ERR(0, 229, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_v_c = ((Py_UCS4)__pyx_t_13);
 
-        /* "neologdn.pyx":233
+        /* "neologdn.pyx":230
  *                 combined = kana_maru_map[chr(c_prev)]
- *                 c = <Py_UCS4> ord(combined[0])
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  *             else:
- *                 if lattin_space and chr(<int>c) in blocks and remove_space and pos > 0:
+ *                 if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":229
- *                 c = <Py_UCS4> ord(combined[0])
+        /* "neologdn.pyx":226
+ *                 c = <Py_UCS4>(ord(combined[0]))
  *                 buf[pos] = c
- *             elif c == <Py_UCS4> ord('') and pos > 0 and chr(c_prev) in kana_maru_map:             # <<<<<<<<<<<<<<
+ *             elif c == <Py_UCS4>(ord('')) and pos > 0 and (chr(c_prev) in kana_maru_map):             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 combined = kana_maru_map[chr(c_prev)]
  */
         goto __pyx_L22;
       }
 
-      /* "neologdn.pyx":235
+      /* "neologdn.pyx":232
  *                 buf[pos] = c
  *             else:
- *                 if lattin_space and chr(<int>c) in blocks and remove_space and pos > 0:             # <<<<<<<<<<<<<<
+ *                 if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:             # <<<<<<<<<<<<<<
  *                     pos -= 1
  *                 lattin_space = False
  */
@@ -6929,14 +6929,14 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
           __pyx_t_2 = __pyx_v_lattin_space;
           goto __pyx_L30_bool_binop_done;
         }
-        __pyx_t_10 = __Pyx_PyInt_From_int(((int)__pyx_v_c)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_From_int(((int)__pyx_v_c)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_blocks); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_blocks); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_11 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         if (__pyx_t_11) {
@@ -6954,26 +6954,26 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         __pyx_L30_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "neologdn.pyx":236
+          /* "neologdn.pyx":233
  *             else:
- *                 if lattin_space and chr(<int>c) in blocks and remove_space and pos > 0:
+ *                 if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:
  *                     pos -= 1             # <<<<<<<<<<<<<<
  *                 lattin_space = False
  *                 buf[pos] = c
  */
           __pyx_v_pos = (__pyx_v_pos - 1);
 
-          /* "neologdn.pyx":235
+          /* "neologdn.pyx":232
  *                 buf[pos] = c
  *             else:
- *                 if lattin_space and chr(<int>c) in blocks and remove_space and pos > 0:             # <<<<<<<<<<<<<<
+ *                 if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:             # <<<<<<<<<<<<<<
  *                     pos -= 1
  *                 lattin_space = False
  */
         }
 
-        /* "neologdn.pyx":237
- *                 if lattin_space and chr(<int>c) in blocks and remove_space and pos > 0:
+        /* "neologdn.pyx":234
+ *                 if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:
  *                     pos -= 1
  *                 lattin_space = False             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
@@ -6981,12 +6981,12 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_lattin_space = 0;
 
-        /* "neologdn.pyx":238
+        /* "neologdn.pyx":235
  *                     pos -= 1
  *                 lattin_space = False
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
- *         # Save the code point to c_prev as an int
+ *         # Save the current code point as an int for future comparisons.
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
@@ -6994,31 +6994,31 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
     }
     __pyx_L6:;
 
-    /* "neologdn.pyx":241
+    /* "neologdn.pyx":238
  * 
- *         # Save the code point to c_prev as an int
+ *         # Save the current code point as an int for future comparisons.
  *         c_prev = <int> buf[pos]             # <<<<<<<<<<<<<<
  *         pos += 1
  * 
  */
     __pyx_v_c_prev = ((int)(__pyx_v_buf[__pyx_v_pos]));
 
-    /* "neologdn.pyx":242
- *         # Save the code point to c_prev as an int
+    /* "neologdn.pyx":239
+ *         # Save the current code point as an int for future comparisons.
  *         c_prev = <int> buf[pos]
  *         pos += 1             # <<<<<<<<<<<<<<
  * 
- *     # If final character is space, remove it
+ *     # If the final character is a space, remove it.
  */
     __pyx_v_pos = (__pyx_v_pos + 1);
     __pyx_L4_continue:;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "neologdn.pyx":245
+  /* "neologdn.pyx":242
  * 
- *     # If final character is space, remove it
- *     if pos > 0 and <int> buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
+ *     # If the final character is a space, remove it.
+ *     if pos > 0 and (<int> buf[pos - 1]) == ord(' '):             # <<<<<<<<<<<<<<
  *         pos -= 1
  * 
  */
@@ -7033,37 +7033,37 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_L35_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "neologdn.pyx":246
- *     # If final character is space, remove it
- *     if pos > 0 and <int> buf[pos - 1] == ord(' '):
+    /* "neologdn.pyx":243
+ *     # If the final character is a space, remove it.
+ *     if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
  *         pos -= 1             # <<<<<<<<<<<<<<
  * 
- *     # Create the final Python Unicode object
+ *     # Create the final Python Unicode object from the UCS4 data.
  */
     __pyx_v_pos = (__pyx_v_pos - 1);
 
-    /* "neologdn.pyx":245
+    /* "neologdn.pyx":242
  * 
- *     # If final character is space, remove it
- *     if pos > 0 and <int> buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
+ *     # If the final character is a space, remove it.
+ *     if pos > 0 and (<int> buf[pos - 1]) == ord(' '):             # <<<<<<<<<<<<<<
  *         pos -= 1
  * 
  */
   }
 
-  /* "neologdn.pyx":249
+  /* "neologdn.pyx":246
  * 
- *     # Create the final Python Unicode object
+ *     # Create the final Python Unicode object from the UCS4 data.
  *     cdef object py_obj = PyUnicode_FromKindAndData(             # <<<<<<<<<<<<<<
  *         PyUnicode_4BYTE_KIND,
  *         <const void*> buf,
  */
-  __pyx_t_10 = PyUnicode_FromKindAndData(PyUnicode_4BYTE_KIND, ((void const *)__pyx_v_buf), __pyx_v_pos); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_10 = PyUnicode_FromKindAndData(PyUnicode_4BYTE_KIND, ((void const *)__pyx_v_buf), __pyx_v_pos); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_v_py_obj = __pyx_t_10;
   __pyx_t_10 = 0;
 
-  /* "neologdn.pyx":254
+  /* "neologdn.pyx":251
  *         pos
  *     )
  *     free(buf)             # <<<<<<<<<<<<<<
@@ -7072,7 +7072,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   free(__pyx_v_buf);
 
-  /* "neologdn.pyx":256
+  /* "neologdn.pyx":253
  *     free(buf)
  * 
  *     if py_obj is None:             # <<<<<<<<<<<<<<
@@ -7082,20 +7082,20 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_t_2 = (__pyx_v_py_obj == Py_None);
   if (unlikely(__pyx_t_2)) {
 
-    /* "neologdn.pyx":257
+    /* "neologdn.pyx":254
  * 
  *     if py_obj is None:
  *         raise MemoryError("Failed to create Python string from UCS4 data.")             # <<<<<<<<<<<<<<
  * 
- *     # Optionally apply the repeat logic
+ *     if repeat > 0:
  */
-    __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_Raise(__pyx_t_10, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __PYX_ERR(0, 257, __pyx_L1_error)
+    __PYX_ERR(0, 254, __pyx_L1_error)
 
-    /* "neologdn.pyx":256
+    /* "neologdn.pyx":253
  *     free(buf)
  * 
  *     if py_obj is None:             # <<<<<<<<<<<<<<
@@ -7104,9 +7104,9 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   }
 
-  /* "neologdn.pyx":260
+  /* "neologdn.pyx":256
+ *         raise MemoryError("Failed to create Python string from UCS4 data.")
  * 
- *     # Optionally apply the repeat logic
  *     if repeat > 0:             # <<<<<<<<<<<<<<
  *         return shorten_repeat(<unicode>py_obj, repeat, max_repeat_substr_length)
  *     return <unicode>py_obj
@@ -7114,8 +7114,8 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_t_2 = (__pyx_v_repeat > 0);
   if (__pyx_t_2) {
 
-    /* "neologdn.pyx":261
- *     # Optionally apply the repeat logic
+    /* "neologdn.pyx":257
+ * 
  *     if repeat > 0:
  *         return shorten_repeat(<unicode>py_obj, repeat, max_repeat_substr_length)             # <<<<<<<<<<<<<<
  *     return <unicode>py_obj
@@ -7123,22 +7123,22 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_14.__pyx_n = 1;
     __pyx_t_14.max_repeat_substr_length = __pyx_v_max_repeat_substr_length;
-    __pyx_t_10 = __pyx_f_8neologdn_shorten_repeat(((PyObject*)__pyx_v_py_obj), __pyx_v_repeat, 0, &__pyx_t_14); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 261, __pyx_L1_error)
+    __pyx_t_10 = __pyx_f_8neologdn_shorten_repeat(((PyObject*)__pyx_v_py_obj), __pyx_v_repeat, 0, &__pyx_t_14); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 257, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = ((PyObject*)__pyx_t_10);
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "neologdn.pyx":260
+    /* "neologdn.pyx":256
+ *         raise MemoryError("Failed to create Python string from UCS4 data.")
  * 
- *     # Optionally apply the repeat logic
  *     if repeat > 0:             # <<<<<<<<<<<<<<
  *         return shorten_repeat(<unicode>py_obj, repeat, max_repeat_substr_length)
  *     return <unicode>py_obj
  */
   }
 
-  /* "neologdn.pyx":262
+  /* "neologdn.pyx":258
  *     if repeat > 0:
  *         return shorten_repeat(<unicode>py_obj, repeat, max_repeat_substr_length)
  *     return <unicode>py_obj             # <<<<<<<<<<<<<<
@@ -7840,9 +7840,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 94, __pyx_L1_error)
-  __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 100, __pyx_L1_error)
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 161, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -7853,30 +7853,30 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "neologdn.pyx":162
+  /* "neologdn.pyx":161
  *     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
  *     if not buf:
  *         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")             # <<<<<<<<<<<<<<
  * 
- *     # c_prev is an int for easy use with chr() or membership checks
+ *     # c_prev is an int for easy use with chr() and membership checks.
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_Failed_to_allocate_memory_for_no); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_Failed_to_allocate_memory_for_no); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "neologdn.pyx":257
+  /* "neologdn.pyx":254
  * 
  *     if py_obj is None:
  *         raise MemoryError("Failed to create Python string from UCS4 data.")             # <<<<<<<<<<<<<<
  * 
- *     # Optionally apply the repeat logic
+ *     if repeat > 0:
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Failed_to_create_Python_string_f); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Failed_to_create_Python_string_f); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "neologdn.pyx":13
- * from cpython.ref cimport PyObject
+ * from sys import version_info
  * 
  * VERSION = (0, 5, 1)             # <<<<<<<<<<<<<<
  * __version__ = '0.5.1'
@@ -8749,7 +8749,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__446 = PyTuple_Pack(2, __pyx_n_u__281, __pyx_n_u__445); if (unlikely(!__pyx_tuple__446)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__446);
   __Pyx_GIVEREF(__pyx_tuple__446);
-  __pyx_tuple__448 = PyTuple_Pack(2, __pyx_n_u__283, __pyx_n_u__447); if (unlikely(!__pyx_tuple__448)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_tuple__448 = PyTuple_Pack(2, __pyx_n_u__284, __pyx_n_u__447); if (unlikely(!__pyx_tuple__448)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__448);
   __Pyx_GIVEREF(__pyx_tuple__448);
   __pyx_tuple__450 = PyTuple_Pack(2, __pyx_n_u__287, __pyx_n_u__449); if (unlikely(!__pyx_tuple__450)) __PYX_ERR(0, 65, __pyx_L1_error)
@@ -8879,79 +8879,79 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * TILDES = ('~', '', '', '', '', '')
  * SPACE = (' ', '')             # <<<<<<<<<<<<<<
  * 
- * conversion_map = {}
+ * ##################################################
  */
   __pyx_tuple__510 = PyTuple_Pack(2, __pyx_kp_u__508, __pyx_kp_u__509); if (unlikely(!__pyx_tuple__510)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__510);
   __Pyx_GIVEREF(__pyx_tuple__510);
 
-  /* "neologdn.pyx":94
+  /* "neologdn.pyx":98
  * 
  * for codepoint in itertools.chain(
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS             # <<<<<<<<<<<<<<
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA
  */
-  __pyx_tuple__511 = PyTuple_Pack(2, __pyx_int_19968, __pyx_int_40960); if (unlikely(!__pyx_tuple__511)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_tuple__511 = PyTuple_Pack(2, __pyx_int_19968, __pyx_int_40960); if (unlikely(!__pyx_tuple__511)) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__511);
   __Pyx_GIVEREF(__pyx_tuple__511);
 
-  /* "neologdn.pyx":95
+  /* "neologdn.pyx":99
  * for codepoint in itertools.chain(
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
  *     range(12352, 12448),  # HIRAGANA             # <<<<<<<<<<<<<<
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  */
-  __pyx_tuple__512 = PyTuple_Pack(2, __pyx_int_12352, __pyx_int_12448); if (unlikely(!__pyx_tuple__512)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_tuple__512 = PyTuple_Pack(2, __pyx_int_12352, __pyx_int_12448); if (unlikely(!__pyx_tuple__512)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__512);
   __Pyx_GIVEREF(__pyx_tuple__512);
 
-  /* "neologdn.pyx":96
+  /* "neologdn.pyx":100
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA             # <<<<<<<<<<<<<<
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
  */
-  __pyx_tuple__513 = PyTuple_Pack(2, __pyx_int_12448, __pyx_int_12544); if (unlikely(!__pyx_tuple__513)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_tuple__513 = PyTuple_Pack(2, __pyx_int_12448, __pyx_int_12544); if (unlikely(!__pyx_tuple__513)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__513);
   __Pyx_GIVEREF(__pyx_tuple__513);
 
-  /* "neologdn.pyx":97
+  /* "neologdn.pyx":101
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION             # <<<<<<<<<<<<<<
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
  * ):
  */
-  __pyx_tuple__514 = PyTuple_Pack(2, __pyx_int_12289, __pyx_int_12352); if (unlikely(!__pyx_tuple__514)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_tuple__514 = PyTuple_Pack(2, __pyx_int_12289, __pyx_int_12352); if (unlikely(!__pyx_tuple__514)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__514);
   __Pyx_GIVEREF(__pyx_tuple__514);
 
-  /* "neologdn.pyx":98
+  /* "neologdn.pyx":102
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS             # <<<<<<<<<<<<<<
  * ):
  *     blocks.add(chr(codepoint))
  */
-  __pyx_tuple__515 = PyTuple_Pack(2, __pyx_int_65280, __pyx_int_65520); if (unlikely(!__pyx_tuple__515)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_tuple__515 = PyTuple_Pack(2, __pyx_int_65280, __pyx_int_65520); if (unlikely(!__pyx_tuple__515)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__515);
   __Pyx_GIVEREF(__pyx_tuple__515);
 
-  /* "neologdn.pyx":110
+  /* "neologdn.pyx":113
  * ##################################################
  * 
  * cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):             # <<<<<<<<<<<<<<
  *     cdef int text_length, i, repeat_length, right_start, right_end
  *     cdef int num_repeat_substrs, upper_repeat_substr_length
  */
-  __pyx_tuple__516 = PyTuple_Pack(3, __pyx_n_s_text, __pyx_n_s_repeat_threshould, __pyx_n_s_max_repeat_substr_length); if (unlikely(!__pyx_tuple__516)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_tuple__516 = PyTuple_Pack(3, __pyx_n_s_text, __pyx_n_s_repeat_threshould, __pyx_n_s_max_repeat_substr_length); if (unlikely(!__pyx_tuple__516)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__516);
   __Pyx_GIVEREF(__pyx_tuple__516);
-  __pyx_codeobj__517 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__516, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_neologdn_pyx, __pyx_n_s_shorten_repeat, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__517)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __pyx_tuple__518 = PyTuple_Pack(1, __pyx_int_8); if (unlikely(!__pyx_tuple__518)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_codeobj__517 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__516, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_neologdn_pyx, __pyx_n_s_shorten_repeat, 113, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__517)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_tuple__518 = PyTuple_Pack(1, __pyx_int_8); if (unlikely(!__pyx_tuple__518)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__518);
   __Pyx_GIVEREF(__pyx_tuple__518);
 
@@ -9376,41 +9376,41 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "neologdn.pyx":5
- * from __future__ import unicode_literals
+  /* "neologdn.pyx":10
+ * from cpython.ref cimport PyObject
  * 
  * import itertools             # <<<<<<<<<<<<<<
  * from sys import version_info
  * 
  */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_itertools, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_itertools, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_itertools, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_itertools, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "neologdn.pyx":6
+  /* "neologdn.pyx":11
  * 
  * import itertools
  * from sys import version_info             # <<<<<<<<<<<<<<
  * 
- * # Modern Unicode creation helpers in Cython 3
+ * VERSION = (0, 5, 1)
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_version_info);
   __Pyx_GIVEREF(__pyx_n_s_version_info);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_version_info)) __PYX_ERR(0, 6, __pyx_L1_error);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_sys, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_version_info)) __PYX_ERR(0, 11, __pyx_L1_error);
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_sys, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_version_info, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_version_info, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "neologdn.pyx":13
- * from cpython.ref cimport PyObject
+ * from sys import version_info
  * 
  * VERSION = (0, 5, 1)             # <<<<<<<<<<<<<<
  * __version__ = '0.5.1'
@@ -9504,40 +9504,40 @@ if (!__Pyx_RefNanny) {
  * TILDES = ('~', '', '', '', '', '')
  * SPACE = (' ', '')             # <<<<<<<<<<<<<<
  * 
- * conversion_map = {}
+ * ##################################################
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_SPACE, __pyx_tuple__510) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
 
-  /* "neologdn.pyx":78
- * SPACE = (' ', '')
+  /* "neologdn.pyx":82
+ * ##################################################
  * 
  * conversion_map = {}             # <<<<<<<<<<<<<<
  * for (before, after) in (ASCII + DIGIT + KANA):
  *     conversion_map[before] = after
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_conversion_map, __pyx_t_3) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_conversion_map, __pyx_t_3) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "neologdn.pyx":79
+  /* "neologdn.pyx":83
  * 
  * conversion_map = {}
  * for (before, after) in (ASCII + DIGIT + KANA):             # <<<<<<<<<<<<<<
  *     conversion_map[before] = after
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ASCII); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ASCII); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DIGIT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_DIGIT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_KANA); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_KANA); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9546,9 +9546,9 @@ if (!__Pyx_RefNanny) {
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 83, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -9557,28 +9557,28 @@ if (!__Pyx_RefNanny) {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -9588,7 +9588,7 @@ if (!__Pyx_RefNanny) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 79, __pyx_L1_error)
+          else __PYX_ERR(0, 83, __pyx_L1_error)
         }
         break;
       }
@@ -9596,159 +9596,6 @@ if (!__Pyx_RefNanny) {
     }
     if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
       PyObject* sequence = __pyx_t_3;
-      Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-      if (unlikely(size != 2)) {
-        if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-        else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 79, __pyx_L1_error)
-      }
-      #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      if (likely(PyTuple_CheckExact(sequence))) {
-        __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
-        __pyx_t_7 = PyTuple_GET_ITEM(sequence, 1); 
-      } else {
-        __pyx_t_4 = PyList_GET_ITEM(sequence, 0); 
-        __pyx_t_7 = PyList_GET_ITEM(sequence, 1); 
-      }
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_7);
-      #else
-      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 79, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      #endif
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    } else {
-      Py_ssize_t index = -1;
-      __pyx_t_8 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 79, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_8);
-      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L4_unpacking_failed;
-      __Pyx_GOTREF(__pyx_t_4);
-      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L4_unpacking_failed;
-      __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-      __pyx_t_9 = NULL;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      goto __pyx_L5_unpacking_done;
-      __pyx_L4_unpacking_failed:;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_9 = NULL;
-      if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 79, __pyx_L1_error)
-      __pyx_L5_unpacking_done:;
-    }
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_before, __pyx_t_4) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_after, __pyx_t_7) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "neologdn.pyx":80
- * conversion_map = {}
- * for (before, after) in (ASCII + DIGIT + KANA):
- *     conversion_map[before] = after             # <<<<<<<<<<<<<<
- * 
- * kana_ten_map = {}
- */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_after); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_before); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_3) < 0))) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "neologdn.pyx":79
- * 
- * conversion_map = {}
- * for (before, after) in (ASCII + DIGIT + KANA):             # <<<<<<<<<<<<<<
- *     conversion_map[before] = after
- * 
- */
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "neologdn.pyx":82
- *     conversion_map[before] = after
- * 
- * kana_ten_map = {}             # <<<<<<<<<<<<<<
- * for (before, after) in KANA_TEN:
- *     kana_ten_map[before] = after
- */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_kana_ten_map, __pyx_t_2) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "neologdn.pyx":83
- * 
- * kana_ten_map = {}
- * for (before, after) in KANA_TEN:             # <<<<<<<<<<<<<<
- *     kana_ten_map[before] = after
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_KANA_TEN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
-    __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_5 = 0;
-    __pyx_t_6 = NULL;
-  } else {
-    __pyx_t_5 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 83, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_6)) {
-      if (likely(PyList_CheckExact(__pyx_t_3))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
-          #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
-          #endif
-          if (__pyx_t_5 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
-        #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        #endif
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
-          #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
-          #endif
-          if (__pyx_t_5 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
-        #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        #endif
-      }
-    } else {
-      __pyx_t_2 = __pyx_t_6(__pyx_t_3);
-      if (unlikely(!__pyx_t_2)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 83, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
-      PyObject* sequence = __pyx_t_2;
       Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
@@ -9771,27 +9618,27 @@ if (!__Pyx_RefNanny) {
       __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       #endif
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_8 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_8 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_8);
-      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L9_unpacking_failed;
+      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L4_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_4);
-      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L9_unpacking_failed;
+      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L4_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_7);
       if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      goto __pyx_L10_unpacking_done;
-      __pyx_L9_unpacking_failed:;
+      goto __pyx_L5_unpacking_done;
+      __pyx_L4_unpacking_failed:;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
       __PYX_ERR(0, 83, __pyx_L1_error)
-      __pyx_L10_unpacking_done:;
+      __pyx_L5_unpacking_done:;
     }
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_before, __pyx_t_4) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -9799,98 +9646,98 @@ if (!__Pyx_RefNanny) {
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
     /* "neologdn.pyx":84
- * kana_ten_map = {}
- * for (before, after) in KANA_TEN:
- *     kana_ten_map[before] = after             # <<<<<<<<<<<<<<
+ * conversion_map = {}
+ * for (before, after) in (ASCII + DIGIT + KANA):
+ *     conversion_map[before] = after             # <<<<<<<<<<<<<<
  * 
- * kana_maru_map = {}
+ * kana_ten_map = {}
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_after); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_after); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_conversion_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_before); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_2) < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
+    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_3) < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "neologdn.pyx":83
+ * 
+ * conversion_map = {}
+ * for (before, after) in (ASCII + DIGIT + KANA):             # <<<<<<<<<<<<<<
+ *     conversion_map[before] = after
+ * 
+ */
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "neologdn.pyx":86
+ *     conversion_map[before] = after
+ * 
+ * kana_ten_map = {}             # <<<<<<<<<<<<<<
+ * for (before, after) in KANA_TEN:
+ *     kana_ten_map[before] = after
+ */
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_kana_ten_map, __pyx_t_2) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "neologdn.pyx":87
  * 
  * kana_ten_map = {}
  * for (before, after) in KANA_TEN:             # <<<<<<<<<<<<<<
  *     kana_ten_map[before] = after
  * 
  */
-  }
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "neologdn.pyx":86
- *     kana_ten_map[before] = after
- * 
- * kana_maru_map = {}             # <<<<<<<<<<<<<<
- * for (before, after) in KANA_MARU:
- *     kana_maru_map[before] = after
- */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_kana_maru_map, __pyx_t_3) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "neologdn.pyx":87
- * 
- * kana_maru_map = {}
- * for (before, after) in KANA_MARU:             # <<<<<<<<<<<<<<
- *     kana_maru_map[before] = after
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_KANA_MARU); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
-    __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_KANA_TEN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+    __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3);
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 87, __pyx_L1_error)
   }
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
     if (likely(!__pyx_t_6)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
+      if (likely(PyList_CheckExact(__pyx_t_3))) {
         {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
           #if !CYTHON_ASSUME_SAFE_MACROS
           if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
           #if !CYTHON_ASSUME_SAFE_MACROS
           if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
     } else {
-      __pyx_t_3 = __pyx_t_6(__pyx_t_2);
-      if (unlikely(!__pyx_t_3)) {
+      __pyx_t_2 = __pyx_t_6(__pyx_t_3);
+      if (unlikely(!__pyx_t_2)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
@@ -9898,10 +9745,10 @@ if (!__Pyx_RefNanny) {
         }
         break;
       }
-      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_GOTREF(__pyx_t_2);
     }
-    if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
-      PyObject* sequence = __pyx_t_3;
+    if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
+      PyObject* sequence = __pyx_t_2;
       Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
@@ -9924,27 +9771,27 @@ if (!__Pyx_RefNanny) {
       __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       #endif
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_8 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __pyx_t_8 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 87, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_8);
-      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L14_unpacking_failed;
+      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L9_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_4);
-      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L14_unpacking_failed;
+      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L9_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_7);
       if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      goto __pyx_L15_unpacking_done;
-      __pyx_L14_unpacking_failed:;
+      goto __pyx_L10_unpacking_done;
+      __pyx_L9_unpacking_failed:;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
       __PYX_ERR(0, 87, __pyx_L1_error)
-      __pyx_L15_unpacking_done:;
+      __pyx_L10_unpacking_done:;
     }
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_before, __pyx_t_4) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -9952,24 +9799,177 @@ if (!__Pyx_RefNanny) {
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
     /* "neologdn.pyx":88
+ * kana_ten_map = {}
+ * for (before, after) in KANA_TEN:
+ *     kana_ten_map[before] = after             # <<<<<<<<<<<<<<
+ * 
+ * kana_maru_map = {}
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_after); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_kana_ten_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_before); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_2) < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "neologdn.pyx":87
+ * 
+ * kana_ten_map = {}
+ * for (before, after) in KANA_TEN:             # <<<<<<<<<<<<<<
+ *     kana_ten_map[before] = after
+ * 
+ */
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "neologdn.pyx":90
+ *     kana_ten_map[before] = after
+ * 
+ * kana_maru_map = {}             # <<<<<<<<<<<<<<
+ * for (before, after) in KANA_MARU:
+ *     kana_maru_map[before] = after
+ */
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_kana_maru_map, __pyx_t_3) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "neologdn.pyx":91
+ * 
+ * kana_maru_map = {}
+ * for (before, after) in KANA_MARU:             # <<<<<<<<<<<<<<
+ *     kana_maru_map[before] = after
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_KANA_MARU); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
+    __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_5 = 0;
+    __pyx_t_6 = NULL;
+  } else {
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_6)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+          #if !CYTHON_ASSUME_SAFE_MACROS
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+          #endif
+          if (__pyx_t_5 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+        #else
+        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
+          #if !CYTHON_ASSUME_SAFE_MACROS
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+          #endif
+          if (__pyx_t_5 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+        #else
+        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      }
+    } else {
+      __pyx_t_3 = __pyx_t_6(__pyx_t_2);
+      if (unlikely(!__pyx_t_3)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 91, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_3);
+    }
+    if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
+      PyObject* sequence = __pyx_t_3;
+      Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+      if (unlikely(size != 2)) {
+        if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+        else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+        __PYX_ERR(0, 91, __pyx_L1_error)
+      }
+      #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+      if (likely(PyTuple_CheckExact(sequence))) {
+        __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
+        __pyx_t_7 = PyTuple_GET_ITEM(sequence, 1); 
+      } else {
+        __pyx_t_4 = PyList_GET_ITEM(sequence, 0); 
+        __pyx_t_7 = PyList_GET_ITEM(sequence, 1); 
+      }
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_7);
+      #else
+      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      #endif
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    } else {
+      Py_ssize_t index = -1;
+      __pyx_t_8 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_8);
+      index = 0; __pyx_t_4 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_4)) goto __pyx_L14_unpacking_failed;
+      __Pyx_GOTREF(__pyx_t_4);
+      index = 1; __pyx_t_7 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_7)) goto __pyx_L14_unpacking_failed;
+      __Pyx_GOTREF(__pyx_t_7);
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_9 = NULL;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      goto __pyx_L15_unpacking_done;
+      __pyx_L14_unpacking_failed:;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_t_9 = NULL;
+      if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+      __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_L15_unpacking_done:;
+    }
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_before, __pyx_t_4) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_after, __pyx_t_7) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+    /* "neologdn.pyx":92
  * kana_maru_map = {}
  * for (before, after) in KANA_MARU:
  *     kana_maru_map[before] = after             # <<<<<<<<<<<<<<
  * 
  * blocks = set()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_after); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_after); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_kana_maru_map); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_before); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_before); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_3) < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+    if (unlikely((PyObject_SetItem(__pyx_t_7, __pyx_t_4, __pyx_t_3) < 0))) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "neologdn.pyx":87
+    /* "neologdn.pyx":91
  * 
  * kana_maru_map = {}
  * for (before, after) in KANA_MARU:             # <<<<<<<<<<<<<<
@@ -9979,91 +9979,91 @@ if (!__Pyx_RefNanny) {
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "neologdn.pyx":90
+  /* "neologdn.pyx":94
  *     kana_maru_map[before] = after
  * 
  * blocks = set()             # <<<<<<<<<<<<<<
  * basic_latin = set()
  * 
  */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_blocks, __pyx_t_2) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_blocks, __pyx_t_2) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "neologdn.pyx":91
+  /* "neologdn.pyx":95
  * 
  * blocks = set()
  * basic_latin = set()             # <<<<<<<<<<<<<<
  * 
  * for codepoint in itertools.chain(
  */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_basic_latin, __pyx_t_2) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_basic_latin, __pyx_t_2) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "neologdn.pyx":93
+  /* "neologdn.pyx":97
  * basic_latin = set()
  * 
  * for codepoint in itertools.chain(             # <<<<<<<<<<<<<<
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
  *     range(12352, 12448),  # HIRAGANA
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_itertools); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_itertools); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_chain); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_chain); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "neologdn.pyx":94
+  /* "neologdn.pyx":98
  * 
  * for codepoint in itertools.chain(
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS             # <<<<<<<<<<<<<<
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__511, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__511, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "neologdn.pyx":95
+  /* "neologdn.pyx":99
  * for codepoint in itertools.chain(
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
  *     range(12352, 12448),  # HIRAGANA             # <<<<<<<<<<<<<<
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__512, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__512, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
 
-  /* "neologdn.pyx":96
+  /* "neologdn.pyx":100
  *     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA             # <<<<<<<<<<<<<<
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
  */
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__513, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__513, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
 
-  /* "neologdn.pyx":97
+  /* "neologdn.pyx":101
  *     range(12352, 12448),  # HIRAGANA
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION             # <<<<<<<<<<<<<<
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
  * ):
  */
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__514, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__514, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
 
-  /* "neologdn.pyx":98
+  /* "neologdn.pyx":102
  *     range(12448, 12544),  # KATAKANA
  *     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS             # <<<<<<<<<<<<<<
  * ):
  *     blocks.add(chr(codepoint))
  */
-  __pyx_t_11 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__515, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_tuple__515, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_t_12 = NULL;
   __pyx_t_13 = 0;
@@ -10088,12 +10088,12 @@ if (!__Pyx_RefNanny) {
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "neologdn.pyx":93
+  /* "neologdn.pyx":97
  * basic_latin = set()
  * 
  * for codepoint in itertools.chain(             # <<<<<<<<<<<<<<
@@ -10105,9 +10105,9 @@ if (!__Pyx_RefNanny) {
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 97, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -10116,28 +10116,28 @@ if (!__Pyx_RefNanny) {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -10147,30 +10147,30 @@ if (!__Pyx_RefNanny) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 93, __pyx_L1_error)
+          else __PYX_ERR(0, 97, __pyx_L1_error)
         }
         break;
       }
       __Pyx_GOTREF(__pyx_t_2);
     }
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_codepoint, __pyx_t_2) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_codepoint, __pyx_t_2) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "neologdn.pyx":100
+    /* "neologdn.pyx":104
  *     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
  * ):
  *     blocks.add(chr(codepoint))             # <<<<<<<<<<<<<<
  * 
  * for codepoint in range(128):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_blocks); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_blocks); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_add); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_add); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_codepoint); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_codepoint); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __pyx_t_11 = NULL;
@@ -10192,13 +10192,13 @@ if (!__Pyx_RefNanny) {
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_13, 1+__pyx_t_13);
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "neologdn.pyx":93
+    /* "neologdn.pyx":97
  * basic_latin = set()
  * 
  * for codepoint in itertools.chain(             # <<<<<<<<<<<<<<
@@ -10208,7 +10208,7 @@ if (!__Pyx_RefNanny) {
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "neologdn.pyx":102
+  /* "neologdn.pyx":106
  *     blocks.add(chr(codepoint))
  * 
  * for codepoint in range(128):             # <<<<<<<<<<<<<<
@@ -10216,26 +10216,26 @@ if (!__Pyx_RefNanny) {
  * 
  */
   for (__pyx_t_14 = 0; __pyx_t_14 < 0x80; __pyx_t_14+=1) {
-    __pyx_t_4 = __Pyx_PyInt_From_long(__pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_long(__pyx_t_14); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_codepoint, __pyx_t_4) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_codepoint, __pyx_t_4) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "neologdn.pyx":103
+    /* "neologdn.pyx":107
  * 
  * for codepoint in range(128):
  *     basic_latin.add(chr(codepoint))             # <<<<<<<<<<<<<<
  * 
- * 
+ * ##################################################
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_basic_latin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_basic_latin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_add); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_add); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_codepoint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_codepoint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -10257,24 +10257,24 @@ if (!__Pyx_RefNanny) {
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_13, 1+__pyx_t_13);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "neologdn.pyx":110
+  /* "neologdn.pyx":113
  * ##################################################
  * 
  * cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):             # <<<<<<<<<<<<<<
  *     cdef int text_length, i, repeat_length, right_start, right_end
  *     cdef int num_repeat_substrs, upper_repeat_substr_length
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_8neologdn_1shorten_repeat, 0, __pyx_n_s_shorten_repeat, NULL, __pyx_n_s_neologdn, __pyx_d, ((PyObject *)__pyx_codeobj__517)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_8neologdn_1shorten_repeat, 0, __pyx_n_s_shorten_repeat, NULL, __pyx_n_s_neologdn, __pyx_d, ((PyObject *)__pyx_codeobj__517)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__518);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_shorten_repeat, __pyx_t_4) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_shorten_repeat, __pyx_t_4) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "neologdn.pyx":147
