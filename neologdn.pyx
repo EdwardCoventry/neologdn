@@ -13,6 +13,7 @@ from cpython.unicode cimport PyUnicode_FromWideChar
 VERSION = (0, 5, 1)
 __version__ = '0.5.1'
 
+# Define your character conversion tuples.
 ASCII = (
     ('ａ', 'a'), ('ｂ', 'b'), ('ｃ', 'c'), ('ｄ', 'd'), ('ｅ', 'e'),
     ('ｆ', 'f'), ('ｇ', 'g'), ('ｈ', 'h'), ('ｉ', 'i'), ('ｊ', 'j'),
@@ -72,41 +73,34 @@ TILDES = ('~', '∼', '∾', '〜', '〰', '～')
 
 SPACE = (' ', '　')
 
-# --- Now declare our C++ containers, using wchar_t (the C wide character type)
+# --- Declare our C++ containers using wchar_t.
 cdef unordered_map[wchar_t, wchar_t] conversion_map, kana_ten_map, kana_maru_map
 cdef unordered_set[wchar_t] blocks, basic_latin
 
-# Build the conversion maps and sets:
-for (before, after) in (ASCII  # + DIGIT + KANA (etc.)
-        # (Assuming you concatenate the tuples as in your original code)
-):
-    conversion_map[before] = after
+# Build the conversion maps (use the first character of each string).
+for (before, after) in (ASCII + DIGIT + KANA):
+    conversion_map[before[0]] = after[0]
 
-for (before, after) in (
-    # KANA_TEN
-):
-    kana_ten_map[before] = after
+for (before, after) in KANA_TEN:
+    kana_ten_map[before[0]] = after[0]
 
-for (before, after) in (
-    # KANA_MARU
-):
-    kana_maru_map[before] = after
+for (before, after) in KANA_MARU:
+    kana_maru_map[before[0]] = after[0]
 
-# Build the sets:
+# Build the sets.
 cdef iterable char_codes = itertools.chain(
     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
     range(12352, 12448),  # HIRAGANA
     range(12448, 12544),  # KATAKANA
     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
-    range(65280, 65520)  # HALFWIDTH AND FULLWIDTH FORMS
+    range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
 )
 for c in map(chr, char_codes):
-    blocks.insert(c)
+    blocks.insert(c[0])
 for c in map(chr, range(128)):
-    basic_latin.insert(c)
+    basic_latin.insert(c[0])
 
-del ASCII, \
-    # (and all other tuples you no longer need, e.g. KANA, DIGIT, KANA_TEN, KANA_MARU, char_codes, version_info)
+del ASCII, KANA, DIGIT, KANA_TEN, KANA_MARU, char_codes, version_info
 
 # --- Function definitions
 
@@ -140,16 +134,15 @@ cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat
 
 cpdef unicode normalize(unicode text, int repeat=0, bint remove_space=True,
                         int max_repeat_substr_length=8, unicode tilde=u'remove'):
-    # Allocate a buffer of wchar_t instead of Py_UNICODE.
+    # Allocate a buffer of wchar_t.
     cdef wchar_t *buf = <wchar_t *> malloc(sizeof(wchar_t) * (len(text) + 1))
     cdef wchar_t c, prev = u'\0'
     cdef int pos = 0
     cdef bint lattin_space = False
 
     for c in text:
-        # Compare with SPACE characters; ensure SPACE is a tuple of Unicode strings.
+        # If the character is a space (from SPACE), normalize it to u' '.
         if c in SPACE:
-            # Normalize any kind of space to u' '.
             c = u' '
             if (prev == u' ' or blocks.count(prev)) and remove_space:
                 continue
