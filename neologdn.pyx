@@ -199,22 +199,24 @@ cpdef unicode normalize(
         # (1) If the character is a space
         #################################
         if ch in SPACE:
-            # unify to ASCII space
-            c = <Py_UCS4>ord(' ')
+            c = <Py_UCS4> ord(' ')
 
-            # if pos>0 and the last stored char == ' '
-            # skip repeated space if remove_space OR previous was in blocks
-            if pos > 0 and <int>buf[pos - 1] == ord(' '):
-                if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
+            # -- FIX: skip leading spaces if remove_space is True and we've stored nothing yet
+            if remove_space and pos == 0:
+                continue
+
+            # if pos>0 and last stored was space, skip repeated space if remove_space or
+            # previous was in blocks
+            if pos > 0 and <int> buf[pos - 1] == ord(' '):
+                if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):
                     continue
 
-            elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
+            elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:
                 lattin_space = True
                 buf[pos] = c
 
             elif remove_space and pos > 0:
                 pos -= 1
-
             else:
                 buf[pos] = c
 

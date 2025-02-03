@@ -6139,8 +6139,8 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  *         # (1) If the character is a space
  *         #################################
  *         if ch in SPACE:             # <<<<<<<<<<<<<<
- *             # unify to ASCII space
- *             c = <Py_UCS4>ord(' ')
+ *             c = <Py_UCS4> ord(' ')
+ * 
  */
     __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -6151,82 +6151,117 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":203
+      /* "neologdn.pyx":202
+ *         #################################
  *         if ch in SPACE:
- *             # unify to ASCII space
- *             c = <Py_UCS4>ord(' ')             # <<<<<<<<<<<<<<
+ *             c = <Py_UCS4> ord(' ')             # <<<<<<<<<<<<<<
  * 
- *             # if pos>0 and the last stored char == ' '
+ *             # -- FIX: skip leading spaces if remove_space is True and we've stored nothing yet
  */
       __pyx_v_c = ((Py_UCS4)32);
 
-      /* "neologdn.pyx":207
- *             # if pos>0 and the last stored char == ' '
- *             # skip repeated space if remove_space OR previous was in blocks
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
- *                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
+      /* "neologdn.pyx":205
+ * 
+ *             # -- FIX: skip leading spaces if remove_space is True and we've stored nothing yet
+ *             if remove_space and pos == 0:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+ */
+      if (__pyx_v_remove_space) {
+      } else {
+        __pyx_t_2 = __pyx_v_remove_space;
+        goto __pyx_L8_bool_binop_done;
+      }
+      __pyx_t_11 = (__pyx_v_pos == 0);
+      __pyx_t_2 = __pyx_t_11;
+      __pyx_L8_bool_binop_done:;
+      if (__pyx_t_2) {
+
+        /* "neologdn.pyx":206
+ *             # -- FIX: skip leading spaces if remove_space is True and we've stored nothing yet
+ *             if remove_space and pos == 0:
+ *                 continue             # <<<<<<<<<<<<<<
+ * 
+ *             # if pos>0 and last stored was space, skip repeated space if remove_space or
+ */
+        goto __pyx_L4_continue;
+
+        /* "neologdn.pyx":205
+ * 
+ *             # -- FIX: skip leading spaces if remove_space is True and we've stored nothing yet
+ *             if remove_space and pos == 0:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+ */
+      }
+
+      /* "neologdn.pyx":210
+ *             # if pos>0 and last stored was space, skip repeated space if remove_space or
+ *             # previous was in blocks
+ *             if pos > 0 and <int> buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
+ *                 if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):
  *                     continue
  */
       __pyx_t_11 = (__pyx_v_pos > 0);
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L8_bool_binop_done;
+        goto __pyx_L11_bool_binop_done;
       }
       __pyx_t_11 = (((int)(__pyx_v_buf[(__pyx_v_pos - 1)])) == 32);
       __pyx_t_2 = __pyx_t_11;
-      __pyx_L8_bool_binop_done:;
+      __pyx_L11_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":208
- *             # skip repeated space if remove_space OR previous was in blocks
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
- *                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):             # <<<<<<<<<<<<<<
+        /* "neologdn.pyx":211
+ *             # previous was in blocks
+ *             if pos > 0 and <int> buf[pos - 1] == ord(' '):
+ *                 if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):             # <<<<<<<<<<<<<<
  *                     continue
  * 
  */
         if (!__pyx_v_remove_space) {
         } else {
           __pyx_t_2 = __pyx_v_remove_space;
-          goto __pyx_L11_bool_binop_done;
+          goto __pyx_L14_bool_binop_done;
         }
         __pyx_t_11 = (__pyx_v_8neologdn_blocks.count(((Py_UCS4)__pyx_v_c_prev)) != 0);
         __pyx_t_2 = __pyx_t_11;
-        __pyx_L11_bool_binop_done:;
+        __pyx_L14_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "neologdn.pyx":209
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
- *                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
+          /* "neologdn.pyx":212
+ *             if pos > 0 and <int> buf[pos - 1] == ord(' '):
+ *                 if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):
  *                     continue             # <<<<<<<<<<<<<<
  * 
- *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
+ *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:
  */
           goto __pyx_L4_continue;
 
-          /* "neologdn.pyx":208
- *             # skip repeated space if remove_space OR previous was in blocks
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):
- *                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):             # <<<<<<<<<<<<<<
+          /* "neologdn.pyx":211
+ *             # previous was in blocks
+ *             if pos > 0 and <int> buf[pos - 1] == ord(' '):
+ *                 if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):             # <<<<<<<<<<<<<<
  *                     continue
  * 
  */
         }
 
-        /* "neologdn.pyx":207
- *             # if pos>0 and the last stored char == ' '
- *             # skip repeated space if remove_space OR previous was in blocks
- *             if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
- *                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
+        /* "neologdn.pyx":210
+ *             # if pos>0 and last stored was space, skip repeated space if remove_space or
+ *             # previous was in blocks
+ *             if pos > 0 and <int> buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
+ *                 if remove_space or (blocks.count(<Py_UCS4> c_prev) != 0):
  *                     continue
  */
-        goto __pyx_L7;
+        goto __pyx_L10;
       }
 
-      /* "neologdn.pyx":211
+      /* "neologdn.pyx":214
  *                     continue
  * 
- *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
+ *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:             # <<<<<<<<<<<<<<
  *                 lattin_space = True
  *                 buf[pos] = c
  */
@@ -6234,30 +6269,30 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L13_bool_binop_done;
+        goto __pyx_L16_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_pos > 0);
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L13_bool_binop_done;
+        goto __pyx_L16_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_8neologdn_basic_latin.count(((Py_UCS4)__pyx_v_c_prev)) != 0);
       __pyx_t_2 = __pyx_t_11;
-      __pyx_L13_bool_binop_done:;
+      __pyx_L16_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":212
+        /* "neologdn.pyx":215
  * 
- *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
+ *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:
  *                 lattin_space = True             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  * 
  */
         __pyx_v_lattin_space = 1;
 
-        /* "neologdn.pyx":213
- *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
+        /* "neologdn.pyx":216
+ *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:
  *                 lattin_space = True
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
@@ -6265,54 +6300,54 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":211
+        /* "neologdn.pyx":214
  *                     continue
  * 
- *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
+ *             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4> c_prev) != 0:             # <<<<<<<<<<<<<<
  *                 lattin_space = True
  *                 buf[pos] = c
  */
-        goto __pyx_L7;
+        goto __pyx_L10;
       }
 
-      /* "neologdn.pyx":215
+      /* "neologdn.pyx":218
  *                 buf[pos] = c
  * 
  *             elif remove_space and pos > 0:             # <<<<<<<<<<<<<<
  *                 pos -= 1
- * 
+ *             else:
  */
       if (__pyx_v_remove_space) {
       } else {
         __pyx_t_2 = __pyx_v_remove_space;
-        goto __pyx_L16_bool_binop_done;
+        goto __pyx_L19_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_pos > 0);
       __pyx_t_2 = __pyx_t_11;
-      __pyx_L16_bool_binop_done:;
+      __pyx_L19_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":216
+        /* "neologdn.pyx":219
  * 
  *             elif remove_space and pos > 0:
  *                 pos -= 1             # <<<<<<<<<<<<<<
- * 
  *             else:
+ *                 buf[pos] = c
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":215
+        /* "neologdn.pyx":218
  *                 buf[pos] = c
  * 
  *             elif remove_space and pos > 0:             # <<<<<<<<<<<<<<
  *                 pos -= 1
- * 
+ *             else:
  */
-        goto __pyx_L7;
+        goto __pyx_L10;
       }
 
-      /* "neologdn.pyx":219
- * 
+      /* "neologdn.pyx":221
+ *                 pos -= 1
  *             else:
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
  * 
@@ -6321,35 +6356,35 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       /*else*/ {
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
-      __pyx_L7:;
+      __pyx_L10:;
 
       /* "neologdn.pyx":201
  *         # (1) If the character is a space
  *         #################################
  *         if ch in SPACE:             # <<<<<<<<<<<<<<
- *             # unify to ASCII space
- *             c = <Py_UCS4>ord(' ')
+ *             c = <Py_UCS4> ord(' ')
+ * 
  */
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":224
+    /* "neologdn.pyx":226
  *         # (2) Hyphens => '-'
  *         ########################
  *         elif ch in HIPHENS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord('-'):
  *                 continue
  */
-    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_HIPHENS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_HIPHENS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":225
+      /* "neologdn.pyx":227
  *         ########################
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):             # <<<<<<<<<<<<<<
@@ -6359,7 +6394,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_t_2 = (__pyx_v_c_prev == 45);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":226
+        /* "neologdn.pyx":228
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):
  *                 continue             # <<<<<<<<<<<<<<
@@ -6368,7 +6403,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         goto __pyx_L4_continue;
 
-        /* "neologdn.pyx":225
+        /* "neologdn.pyx":227
  *         ########################
  *         elif ch in HIPHENS:
  *             if c_prev == ord('-'):             # <<<<<<<<<<<<<<
@@ -6377,7 +6412,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
       }
 
-      /* "neologdn.pyx":228
+      /* "neologdn.pyx":230
  *                 continue
  *             else:
  *                 c = <Py_UCS4>ord('-')             # <<<<<<<<<<<<<<
@@ -6387,7 +6422,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       /*else*/ {
         __pyx_v_c = ((Py_UCS4)45);
 
-        /* "neologdn.pyx":229
+        /* "neologdn.pyx":231
  *             else:
  *                 c = <Py_UCS4>ord('-')
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6397,7 +6432,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
 
-      /* "neologdn.pyx":224
+      /* "neologdn.pyx":226
  *         # (2) Hyphens => '-'
  *         ########################
  *         elif ch in HIPHENS:             # <<<<<<<<<<<<<<
@@ -6407,23 +6442,23 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":234
+    /* "neologdn.pyx":236
  *         # (3) Choonpus => ''
  *         ########################
  *         elif ch in CHOONPUS:             # <<<<<<<<<<<<<<
  *             if c_prev == ord(''):
  *                 continue
  */
-    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_CHOONPUS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_CHOONPUS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_3, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":235
+      /* "neologdn.pyx":237
  *         ########################
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):             # <<<<<<<<<<<<<<
@@ -6433,7 +6468,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_t_2 = (__pyx_v_c_prev == 0x30FC);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":236
+        /* "neologdn.pyx":238
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):
  *                 continue             # <<<<<<<<<<<<<<
@@ -6442,7 +6477,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         goto __pyx_L4_continue;
 
-        /* "neologdn.pyx":235
+        /* "neologdn.pyx":237
  *         ########################
  *         elif ch in CHOONPUS:
  *             if c_prev == ord(''):             # <<<<<<<<<<<<<<
@@ -6451,7 +6486,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
       }
 
-      /* "neologdn.pyx":238
+      /* "neologdn.pyx":240
  *                 continue
  *             else:
  *                 c = <Py_UCS4>ord('')             # <<<<<<<<<<<<<<
@@ -6461,7 +6496,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       /*else*/ {
         __pyx_v_c = ((Py_UCS4)0x30FC);
 
-        /* "neologdn.pyx":239
+        /* "neologdn.pyx":241
  *             else:
  *                 c = <Py_UCS4>ord('')
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6471,7 +6506,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
 
-      /* "neologdn.pyx":234
+      /* "neologdn.pyx":236
  *         # (3) Choonpus => ''
  *         ########################
  *         elif ch in CHOONPUS:             # <<<<<<<<<<<<<<
@@ -6481,33 +6516,33 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":244
+    /* "neologdn.pyx":246
  *         # (4) Tildes
  *         ########################
  *         elif ch in TILDES:             # <<<<<<<<<<<<<<
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  */
-    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyUnicode_FromOrdinal(__pyx_v_ch); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_TILDES); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_TILDES); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 244, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_3, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "neologdn.pyx":245
+      /* "neologdn.pyx":247
  *         ########################
  *         elif ch in TILDES:
  *             if tilde == u'ignore':             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             elif tilde == u'normalize':
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_ignore, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 245, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_ignore, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 247, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":246
+        /* "neologdn.pyx":248
  *         elif ch in TILDES:
  *             if tilde == u'ignore':
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6516,27 +6551,27 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":245
+        /* "neologdn.pyx":247
  *         ########################
  *         elif ch in TILDES:
  *             if tilde == u'ignore':             # <<<<<<<<<<<<<<
  *                 buf[pos] = c
  *             elif tilde == u'normalize':
  */
-        goto __pyx_L20;
+        goto __pyx_L23;
       }
 
-      /* "neologdn.pyx":247
+      /* "neologdn.pyx":249
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  *             elif tilde == u'normalize':             # <<<<<<<<<<<<<<
  *                 c = <Py_UCS4>ord('~')
  *                 buf[pos] = c
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 247, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 249, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":248
+        /* "neologdn.pyx":250
  *                 buf[pos] = c
  *             elif tilde == u'normalize':
  *                 c = <Py_UCS4>ord('~')             # <<<<<<<<<<<<<<
@@ -6545,7 +6580,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_c = ((Py_UCS4)0x7E);
 
-        /* "neologdn.pyx":249
+        /* "neologdn.pyx":251
  *             elif tilde == u'normalize':
  *                 c = <Py_UCS4>ord('~')
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6554,27 +6589,27 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":247
+        /* "neologdn.pyx":249
  *             if tilde == u'ignore':
  *                 buf[pos] = c
  *             elif tilde == u'normalize':             # <<<<<<<<<<<<<<
  *                 c = <Py_UCS4>ord('~')
  *                 buf[pos] = c
  */
-        goto __pyx_L20;
+        goto __pyx_L23;
       }
 
-      /* "neologdn.pyx":250
+      /* "neologdn.pyx":252
  *                 c = <Py_UCS4>ord('~')
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':             # <<<<<<<<<<<<<<
  *                 c = <Py_UCS4>ord('')
  *                 buf[pos] = c
  */
-      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize_zenkaku, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 250, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_tilde, __pyx_n_u_normalize_zenkaku, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 252, __pyx_L1_error)
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":251
+        /* "neologdn.pyx":253
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':
  *                 c = <Py_UCS4>ord('')             # <<<<<<<<<<<<<<
@@ -6583,7 +6618,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_c = ((Py_UCS4)0x301C);
 
-        /* "neologdn.pyx":252
+        /* "neologdn.pyx":254
  *             elif tilde == u'normalize_zenkaku':
  *                 c = <Py_UCS4>ord('')
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6592,17 +6627,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":250
+        /* "neologdn.pyx":252
  *                 c = <Py_UCS4>ord('~')
  *                 buf[pos] = c
  *             elif tilde == u'normalize_zenkaku':             # <<<<<<<<<<<<<<
  *                 c = <Py_UCS4>ord('')
  *                 buf[pos] = c
  */
-        goto __pyx_L20;
+        goto __pyx_L23;
       }
 
-      /* "neologdn.pyx":255
+      /* "neologdn.pyx":257
  *             else:
  *                 # "remove" => skip
  *                 continue             # <<<<<<<<<<<<<<
@@ -6612,9 +6647,9 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       /*else*/ {
         goto __pyx_L4_continue;
       }
-      __pyx_L20:;
+      __pyx_L23:;
 
-      /* "neologdn.pyx":244
+      /* "neologdn.pyx":246
  *         # (4) Tildes
  *         ########################
  *         elif ch in TILDES:             # <<<<<<<<<<<<<<
@@ -6624,7 +6659,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       goto __pyx_L6;
     }
 
-    /* "neologdn.pyx":261
+    /* "neologdn.pyx":263
  *         ########################
  *         else:
  *             if conversion_map.count(c) != 0:             # <<<<<<<<<<<<<<
@@ -6635,7 +6670,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       __pyx_t_2 = (__pyx_v_8neologdn_conversion_map.count(__pyx_v_c) != 0);
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":262
+        /* "neologdn.pyx":264
  *         else:
  *             if conversion_map.count(c) != 0:
  *                 c = conversion_map[c]             # <<<<<<<<<<<<<<
@@ -6644,7 +6679,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_c = (__pyx_v_8neologdn_conversion_map[__pyx_v_c]);
 
-        /* "neologdn.pyx":261
+        /* "neologdn.pyx":263
  *         ########################
  *         else:
  *             if conversion_map.count(c) != 0:             # <<<<<<<<<<<<<<
@@ -6653,7 +6688,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
       }
 
-      /* "neologdn.pyx":264
+      /* "neologdn.pyx":266
  *                 c = conversion_map[c]
  * 
  *             if c == ord('') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
@@ -6664,20 +6699,20 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L23_bool_binop_done;
+        goto __pyx_L26_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_pos > 0);
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L23_bool_binop_done;
+        goto __pyx_L26_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_8neologdn_kana_ten_map.count(((Py_UCS4)__pyx_v_c_prev)) != 0);
       __pyx_t_2 = __pyx_t_11;
-      __pyx_L23_bool_binop_done:;
+      __pyx_L26_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":265
+        /* "neologdn.pyx":267
  * 
  *             if c == ord('') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:
  *                 pos -= 1             # <<<<<<<<<<<<<<
@@ -6686,7 +6721,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":266
+        /* "neologdn.pyx":268
  *             if c == ord('') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:
  *                 pos -= 1
  *                 c = kana_ten_map[<Py_UCS4>c_prev]             # <<<<<<<<<<<<<<
@@ -6695,7 +6730,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_c = (__pyx_v_8neologdn_kana_ten_map[((Py_UCS4)__pyx_v_c_prev)]);
 
-        /* "neologdn.pyx":267
+        /* "neologdn.pyx":269
  *                 pos -= 1
  *                 c = kana_ten_map[<Py_UCS4>c_prev]
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6704,17 +6739,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":264
+        /* "neologdn.pyx":266
  *                 c = conversion_map[c]
  * 
  *             if c == ord('') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 c = kana_ten_map[<Py_UCS4>c_prev]
  */
-        goto __pyx_L22;
+        goto __pyx_L25;
       }
 
-      /* "neologdn.pyx":269
+      /* "neologdn.pyx":271
  *                 buf[pos] = c
  * 
  *             elif c == ord('') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
@@ -6725,20 +6760,20 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L26_bool_binop_done;
+        goto __pyx_L29_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_pos > 0);
       if (__pyx_t_11) {
       } else {
         __pyx_t_2 = __pyx_t_11;
-        goto __pyx_L26_bool_binop_done;
+        goto __pyx_L29_bool_binop_done;
       }
       __pyx_t_11 = (__pyx_v_8neologdn_kana_maru_map.count(((Py_UCS4)__pyx_v_c_prev)) != 0);
       __pyx_t_2 = __pyx_t_11;
-      __pyx_L26_bool_binop_done:;
+      __pyx_L29_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "neologdn.pyx":270
+        /* "neologdn.pyx":272
  * 
  *             elif c == ord('') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:
  *                 pos -= 1             # <<<<<<<<<<<<<<
@@ -6747,7 +6782,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_pos = (__pyx_v_pos - 1);
 
-        /* "neologdn.pyx":271
+        /* "neologdn.pyx":273
  *             elif c == ord('') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:
  *                 pos -= 1
  *                 c = kana_maru_map[<Py_UCS4>c_prev]             # <<<<<<<<<<<<<<
@@ -6756,7 +6791,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_c = (__pyx_v_8neologdn_kana_maru_map[((Py_UCS4)__pyx_v_c_prev)]);
 
-        /* "neologdn.pyx":272
+        /* "neologdn.pyx":274
  *                 pos -= 1
  *                 c = kana_maru_map[<Py_UCS4>c_prev]
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6765,17 +6800,17 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
 
-        /* "neologdn.pyx":269
+        /* "neologdn.pyx":271
  *                 buf[pos] = c
  * 
  *             elif c == ord('') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:             # <<<<<<<<<<<<<<
  *                 pos -= 1
  *                 c = kana_maru_map[<Py_UCS4>c_prev]
  */
-        goto __pyx_L22;
+        goto __pyx_L25;
       }
 
-      /* "neologdn.pyx":275
+      /* "neologdn.pyx":277
  * 
  *             else:
  *                 if lattin_space and blocks.count(c) != 0 and remove_space and pos > 0:             # <<<<<<<<<<<<<<
@@ -6786,25 +6821,25 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
         if (__pyx_v_lattin_space) {
         } else {
           __pyx_t_2 = __pyx_v_lattin_space;
-          goto __pyx_L30_bool_binop_done;
+          goto __pyx_L33_bool_binop_done;
         }
         __pyx_t_11 = (__pyx_v_8neologdn_blocks.count(__pyx_v_c) != 0);
         if (__pyx_t_11) {
         } else {
           __pyx_t_2 = __pyx_t_11;
-          goto __pyx_L30_bool_binop_done;
+          goto __pyx_L33_bool_binop_done;
         }
         if (__pyx_v_remove_space) {
         } else {
           __pyx_t_2 = __pyx_v_remove_space;
-          goto __pyx_L30_bool_binop_done;
+          goto __pyx_L33_bool_binop_done;
         }
         __pyx_t_11 = (__pyx_v_pos > 0);
         __pyx_t_2 = __pyx_t_11;
-        __pyx_L30_bool_binop_done:;
+        __pyx_L33_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "neologdn.pyx":276
+          /* "neologdn.pyx":278
  *             else:
  *                 if lattin_space and blocks.count(c) != 0 and remove_space and pos > 0:
  *                     pos -= 1             # <<<<<<<<<<<<<<
@@ -6813,7 +6848,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
           __pyx_v_pos = (__pyx_v_pos - 1);
 
-          /* "neologdn.pyx":275
+          /* "neologdn.pyx":277
  * 
  *             else:
  *                 if lattin_space and blocks.count(c) != 0 and remove_space and pos > 0:             # <<<<<<<<<<<<<<
@@ -6822,7 +6857,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         }
 
-        /* "neologdn.pyx":278
+        /* "neologdn.pyx":280
  *                     pos -= 1
  * 
  *                 lattin_space = False             # <<<<<<<<<<<<<<
@@ -6831,7 +6866,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         __pyx_v_lattin_space = 0;
 
-        /* "neologdn.pyx":279
+        /* "neologdn.pyx":281
  * 
  *                 lattin_space = False
  *                 buf[pos] = c             # <<<<<<<<<<<<<<
@@ -6840,11 +6875,11 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
         (__pyx_v_buf[__pyx_v_pos]) = __pyx_v_c;
       }
-      __pyx_L22:;
+      __pyx_L25:;
     }
     __pyx_L6:;
 
-    /* "neologdn.pyx":282
+    /* "neologdn.pyx":284
  * 
  *         # Update c_prev from the newly stored character
  *         c_prev = <int> buf[pos]             # <<<<<<<<<<<<<<
@@ -6853,7 +6888,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
     __pyx_v_c_prev = ((int)(__pyx_v_buf[__pyx_v_pos]));
 
-    /* "neologdn.pyx":283
+    /* "neologdn.pyx":285
  *         # Update c_prev from the newly stored character
  *         c_prev = <int> buf[pos]
  *         pos += 1             # <<<<<<<<<<<<<<
@@ -6865,7 +6900,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "neologdn.pyx":288
+  /* "neologdn.pyx":290
  *     # If final character is ' ', remove it
  *     #################################
  *     if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
@@ -6876,14 +6911,14 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   if (__pyx_t_11) {
   } else {
     __pyx_t_2 = __pyx_t_11;
-    goto __pyx_L35_bool_binop_done;
+    goto __pyx_L38_bool_binop_done;
   }
   __pyx_t_11 = (((int)(__pyx_v_buf[(__pyx_v_pos - 1)])) == 32);
   __pyx_t_2 = __pyx_t_11;
-  __pyx_L35_bool_binop_done:;
+  __pyx_L38_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "neologdn.pyx":289
+    /* "neologdn.pyx":291
  *     #################################
  *     if pos > 0 and <int>buf[pos - 1] == ord(' '):
  *         pos -= 1             # <<<<<<<<<<<<<<
@@ -6892,7 +6927,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
     __pyx_v_pos = (__pyx_v_pos - 1);
 
-    /* "neologdn.pyx":288
+    /* "neologdn.pyx":290
  *     # If final character is ' ', remove it
  *     #################################
  *     if pos > 0 and <int>buf[pos - 1] == ord(' '):             # <<<<<<<<<<<<<<
@@ -6901,7 +6936,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   }
 
-  /* "neologdn.pyx":292
+  /* "neologdn.pyx":294
  * 
  *     # Put a null terminator
  *     buf[pos] = 0             # <<<<<<<<<<<<<<
@@ -6910,19 +6945,19 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   (__pyx_v_buf[__pyx_v_pos]) = 0;
 
-  /* "neologdn.pyx":295
+  /* "neologdn.pyx":297
  * 
  *     # Build the final Python Unicode object from the 4-byte buffer
  *     cdef object py_obj = PyUnicode_FromKindAndData(             # <<<<<<<<<<<<<<
  *         PyUnicode_4BYTE_KIND,
  *         <const void*> buf,
  */
-  __pyx_t_3 = PyUnicode_FromKindAndData(PyUnicode_4BYTE_KIND, ((void const *)__pyx_v_buf), __pyx_v_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_3 = PyUnicode_FromKindAndData(PyUnicode_4BYTE_KIND, ((void const *)__pyx_v_buf), __pyx_v_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_py_obj = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "neologdn.pyx":300
+  /* "neologdn.pyx":302
  *         pos
  *     )
  *     cdef unicode out = <unicode>py_obj             # <<<<<<<<<<<<<<
@@ -6934,7 +6969,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_v_out = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "neologdn.pyx":302
+  /* "neologdn.pyx":304
  *     cdef unicode out = <unicode>py_obj
  * 
  *     free(buf)             # <<<<<<<<<<<<<<
@@ -6943,7 +6978,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   free(__pyx_v_buf);
 
-  /* "neologdn.pyx":305
+  /* "neologdn.pyx":307
  * 
  *     # Apply repeat-shortening if needed
  *     if repeat > 0:             # <<<<<<<<<<<<<<
@@ -6953,7 +6988,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
   __pyx_t_2 = (__pyx_v_repeat > 0);
   if (__pyx_t_2) {
 
-    /* "neologdn.pyx":306
+    /* "neologdn.pyx":308
  *     # Apply repeat-shortening if needed
  *     if repeat > 0:
  *         return shorten_repeat(out, repeat, max_repeat_substr_length)             # <<<<<<<<<<<<<<
@@ -6962,13 +6997,13 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_12.__pyx_n = 1;
     __pyx_t_12.max_repeat_substr_length = __pyx_v_max_repeat_substr_length;
-    __pyx_t_3 = __pyx_f_8neologdn_shorten_repeat(__pyx_v_out, __pyx_v_repeat, 0, &__pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_8neologdn_shorten_repeat(__pyx_v_out, __pyx_v_repeat, 0, &__pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 308, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "neologdn.pyx":305
+    /* "neologdn.pyx":307
  * 
  *     # Apply repeat-shortening if needed
  *     if repeat > 0:             # <<<<<<<<<<<<<<
@@ -6977,7 +7012,7 @@ static PyObject *__pyx_f_8neologdn_normalize(PyObject *__pyx_v_text, CYTHON_UNUS
  */
   }
 
-  /* "neologdn.pyx":307
+  /* "neologdn.pyx":309
  *     if repeat > 0:
  *         return shorten_repeat(out, repeat, max_repeat_substr_length)
  *     return out             # <<<<<<<<<<<<<<
