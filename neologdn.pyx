@@ -8,14 +8,16 @@ from __future__ import unicode_literals
 from libc.stdlib cimport malloc, free
 from libcpp.unordered_map cimport unordered_map
 from libcpp.unordered_set cimport unordered_set
-from libc.stddef cimport wchar_t  # needed for PyUnicode_FromWideChar
 
 ### Python imports
 import itertools
 from sys import version_info
 
-# Import the Unicode creation function for Python 3
-from cpython.unicode cimport PyUnicode_FromWideChar
+# Import the 4-byte builder for Python unicode
+from cpython.unicode cimport (
+    PyUnicode_FromKindAndData,  # to build Unicode directly from a codepoint array
+    PyUnicode_4BYTE_KIND
+)
 
 VERSION = (0, 5, 1)
 __version__ = '0.5.1'
@@ -178,8 +180,8 @@ cpdef unicode normalize(
     - Use an allocated Py_UCS4* buffer.
     - Use blocks.count(...) etc. instead of (chr(...) in blocks).
     """
-    # Allocate UCS4 buffer (length+1 to have a trailing sentinel).
     cdef Py_ssize_t length = len(text)
+    # Allocate a Py_UCS4 buffer with length+1 for trailing null
     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
     if not buf:
         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")
@@ -200,22 +202,16 @@ cpdef unicode normalize(
             # unify to ASCII space
             c = <Py_UCS4>ord(' ')
 
-            # old logic:
             # if pos>0 and the last stored char == ' '
-            #     skip repeated space if remove_space OR previous was in blocks
+            # skip repeated space if remove_space OR previous was in blocks
             if pos > 0 and <int>buf[pos - 1] == ord(' '):
                 if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
                     continue
 
-            # elif c_prev != ord('*') and pos>0 and previous is in basic_latin
-            #     set lattin_space = True
-            #     store c
             elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
                 lattin_space = True
                 buf[pos] = c
 
-            # elif remove_space and pos>0
-            #     pos -= 1
             elif remove_space and pos > 0:
                 pos -= 1
 
@@ -247,7 +243,6 @@ cpdef unicode normalize(
         ########################
         elif ch in TILDES:
             if tilde == u'ignore':
-                # just store it as-is
                 buf[pos] = c
             elif tilde == u'normalize':
                 c = <Py_UCS4>ord('~')
@@ -263,27 +258,21 @@ cpdef unicode normalize(
         # (5) Otherwise: conversions
         ########################
         else:
-            # If in conversion_map, replace
             if conversion_map.count(c) != 0:
                 c = conversion_map[c]
 
-            # If c == 'ﾞ' and the previous char in the buffer can combine (kana_ten_map)
             if c == ord('ﾞ') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:
-                # Move pos back, then store the combined form
                 pos -= 1
                 c = kana_ten_map[<Py_UCS4>c_prev]
                 buf[pos] = c
 
-            # If c == 'ﾟ' and the previous char can combine (kana_maru_map)
             elif c == ord('ﾟ') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:
                 pos -= 1
                 c = kana_maru_map[<Py_UCS4>c_prev]
                 buf[pos] = c
 
             else:
-                # If we had a "lattin_space" and the new char is in blocks,
-                # and remove_space => remove that space by stepping back
-                if lattin_space and (blocks.count(c) != 0) and remove_space and pos > 0:
+                if lattin_space and blocks.count(c) != 0 and remove_space and pos > 0:
                     pos -= 1
 
                 lattin_space = False
@@ -299,21 +288,20 @@ cpdef unicode normalize(
     if pos > 0 and <int>buf[pos - 1] == ord(' '):
         pos -= 1
 
-    #################################
-    # Build final Unicode from the UCS4 data
-    #################################
-    # We put a null at the end of the buffer so CPython won't overread
+    # Put a null terminator
     buf[pos] = 0
 
-    cdef object py_obj = PyUnicode_FromWideChar(<const wchar_t *> buf, pos)
+    # Build the final Python Unicode object from the 4-byte buffer
+    cdef object py_obj = PyUnicode_FromKindAndData(
+        PyUnicode_4BYTE_KIND,
+        <const void*> buf,
+        pos
+    )
     cdef unicode out = <unicode>py_obj
 
-    # Free the buffer
     free(buf)
 
-    #################################
     # Apply repeat-shortening if needed
-    #################################
     if repeat > 0:
         return shorten_repeat(out, repeat, max_repeat_substr_length)
     return out
