@@ -8,10 +8,14 @@ from __future__ import unicode_literals
 from libc.stdlib cimport malloc, free
 from libcpp.unordered_map cimport unordered_map
 from libcpp.unordered_set cimport unordered_set
+from libc.stddef cimport wchar_t  # needed for PyUnicode_FromWideChar
 
 ### Python imports
 import itertools
 from sys import version_info
+
+# Import the Unicode creation function for Python 3
+from cpython.unicode cimport PyUnicode_FromWideChar
 
 VERSION = (0, 5, 1)
 __version__ = '0.5.1'
@@ -301,8 +305,8 @@ cpdef unicode normalize(
     # We put a null at the end of the buffer so CPython won't overread
     buf[pos] = 0
 
-    # Convert to a Python unicode object
-    cdef unicode out = (<Py_UNICODE *>buf)[:pos]  # Slicing in Cython builds a PyUnicode
+    cdef object py_obj = PyUnicode_FromWideChar(<const wchar_t *> buf, pos)
+    cdef unicode out = <unicode>py_obj
 
     # Free the buffer
     free(buf)
