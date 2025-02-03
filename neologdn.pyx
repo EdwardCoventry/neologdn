@@ -1,12 +1,15 @@
+# distutils: language=c++
 # cython: language_level=3
 # -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 
-# Modern Unicode creation helpers in Cython 3
-from cpython.unicode cimport PyUnicode_FromKindAndData, PyUnicode_4BYTE_KIND
+### Cython / C++ imports
 from libc.stdlib cimport malloc, free
-from cpython.ref cimport PyObject
+from libcpp.unordered_map cimport unordered_map
+from libcpp.unordered_set cimport unordered_set
 
+### Python imports
 import itertools
 from sys import version_info
 
@@ -14,7 +17,7 @@ VERSION = (0, 5, 1)
 __version__ = '0.5.1'
 
 ##################################################
-# Define character conversion data
+# Define character conversion data (Python level)
 ##################################################
 
 ASCII = (
@@ -38,6 +41,7 @@ ASCII = (
     ('＾', '^'), ('＿', '_'), ('‘', '`'), ('｛', '{'), ('｜', '|'),
     ('｝', '}')
 )
+
 KANA = (
     ('ｱ', 'ア'), ('ｲ', 'イ'), ('ｳ', 'ウ'), ('ｴ', 'エ'), ('ｵ', 'オ'),
     ('ｶ', 'カ'), ('ｷ', 'キ'), ('ｸ', 'ク'), ('ｹ', 'ケ'), ('ｺ', 'コ'),
@@ -54,10 +58,12 @@ KANA = (
     ('｡', '。'), ('､', '、'), ('･', '・'), ('゛', 'ﾞ'), ('゜', 'ﾟ'),
     ('｢', '「'), ('｣', '」'), ('ｰ', 'ー')
 )
+
 DIGIT = (
     ('０', '0'), ('１', '1'), ('２', '2'), ('３', '3'), ('４', '4'),
     ('５', '5'), ('６', '6'), ('７', '7'), ('８', '8'), ('９', '9')
 )
+
 KANA_TEN = (
     ('カ', 'ガ'), ('キ', 'ギ'), ('ク', 'グ'), ('ケ', 'ゲ'), ('コ', 'ゴ'),
     ('サ', 'ザ'), ('シ', 'ジ'), ('ス', 'ズ'), ('セ', 'ゼ'), ('ソ', 'ゾ'),
@@ -65,8 +71,9 @@ KANA_TEN = (
     ('ハ', 'バ'), ('ヒ', 'ビ'), ('フ', 'ブ'), ('ヘ', 'ベ'), ('ホ', 'ボ'),
     ('ウ', 'ヴ'), ('う', 'ゔ')
 )
+
 KANA_MARU = (
-    ('ハ', 'パ'), ('ヒ', 'ピ'), ('フ', 'プ'), ('ヘ', 'ぺ'), ('ホ', 'ポ'),
+    ('ハ', 'パ'), ('ヒ', 'ピ'), ('フ', 'プ'), ('ヘ', 'ペ'), ('ホ', 'ポ'),
     ('は', 'ぱ'), ('ひ', 'ぴ'), ('ふ', 'ぷ'), ('へ', 'ぺ'), ('ほ', 'ぽ')
 )
 
@@ -76,24 +83,29 @@ TILDES = ('~', '∼', '∾', '〜', '〰', '～')
 SPACE = (' ', '　')
 
 ##################################################
-# Build Python-level dicts/sets for mapping and membership
+# We will store code points in the C++ containers
 ##################################################
 
-conversion_map = {}
+cdef unordered_map[Py_UCS4, Py_UCS4] conversion_map
+cdef unordered_map[Py_UCS4, Py_UCS4] kana_ten_map
+cdef unordered_map[Py_UCS4, Py_UCS4] kana_maru_map
+
+cdef unordered_set[Py_UCS4] blocks
+cdef unordered_set[Py_UCS4] basic_latin
+
+# Fill conversion_map with code points (ord)
 for (before, after) in (ASCII + DIGIT + KANA):
-    conversion_map[before] = after
+    conversion_map[ord(before[0])] = <Py_UCS4>ord(after[0])
 
-kana_ten_map = {}
+# Fill kana_ten_map
 for (before, after) in KANA_TEN:
-    kana_ten_map[before] = after
+    kana_ten_map[ord(before[0])] = <Py_UCS4>ord(after[0])
 
-kana_maru_map = {}
+# Fill kana_maru_map
 for (before, after) in KANA_MARU:
-    kana_maru_map[before] = after
+    kana_maru_map[ord(before[0])] = <Py_UCS4>ord(after[0])
 
-blocks = set()
-basic_latin = set()
-
+# Insert code points for the main CJK/Hiragana/Katakana blocks, etc.
 for codepoint in itertools.chain(
     range(19968, 40960),  # CJK UNIFIED IDEOGRAPHS
     range(12352, 12448),  # HIRAGANA
@@ -101,16 +113,19 @@ for codepoint in itertools.chain(
     range(12289, 12352),  # CJK SYMBOLS AND PUNCTUATION
     range(65280, 65520)   # HALFWIDTH AND FULLWIDTH FORMS
 ):
-    blocks.add(chr(codepoint))
+    blocks.insert(<Py_UCS4>codepoint)
 
+# Insert code points for basic ASCII (0..127)
 for codepoint in range(128):
-    basic_latin.add(chr(codepoint))
+    basic_latin.insert(<Py_UCS4>codepoint)
 
 ##################################################
-# Helper function: shorten repeated substrings
+# shorten_repeat (identical to old logic)
 ##################################################
-
 cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat_substr_length=8):
+    """
+    Identical logic from old code, line-by-line.
+    """
     cdef int text_length, i, repeat_length, right_start, right_end
     cdef int num_repeat_substrs, upper_repeat_substr_length
     cdef unicode substr, right_substr
@@ -118,6 +133,7 @@ cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat
     i = 0
     while i < len(text):
         text_length = len(text)
+        # The maximum repeated substring length to check
         upper_repeat_substr_length = (text_length - i) // 2
         if max_repeat_substr_length and max_repeat_substr_length < upper_repeat_substr_length:
             upper_repeat_substr_length = max_repeat_substr_length + 1
@@ -128,131 +144,172 @@ cpdef unicode shorten_repeat(unicode text, int repeat_threshould, int max_repeat
             right_end = right_start + repeat_length
             right_substr = text[right_start:right_end]
             num_repeat_substrs = 1
+
             while substr == right_substr and right_end <= text_length:
                 num_repeat_substrs += 1
                 right_start += repeat_length
                 right_end += repeat_length
                 right_substr = text[right_start:right_end]
+
             if num_repeat_substrs > repeat_threshould:
                 text = (text[: i + repeat_length * repeat_threshould] +
                         text[i + repeat_length * num_repeat_substrs :])
         i += 1
     return text
 
-
 ##################################################
-# Main normalize function using Py_UCS4 and PyUnicode_FromKindAndData
+# normalize with identical line-by-line logic
+# but store the final text in a Py_UCS4* buffer
+# and use the C++ sets for membership checks.
 ##################################################
-
-cpdef unicode normalize(unicode text,
-                        int repeat = 0,
-                        bint remove_space = True,
-                        int max_repeat_substr_length = 8,
-                        unicode tilde = u'remove'):
+cpdef unicode normalize(
+    unicode text,
+    int repeat = 0,
+    bint remove_space = True,
+    int max_repeat_substr_length = 8,
+    unicode tilde = u'remove'
+):
     """
-    Normalize text with membership checks at the Python level,
-    but store the final results in a Py_UCS4* buffer.
-    Then build the final string with PyUnicode_FromKindAndData.
+    Replicate the old logic line by line, but:
+    - Use an allocated Py_UCS4* buffer.
+    - Use blocks.count(...) etc. instead of (chr(...) in blocks).
     """
+    # Allocate UCS4 buffer (length+1 to have a trailing sentinel).
     cdef Py_ssize_t length = len(text)
-    # Allocate buffer with length+1 for a sentinel
     cdef Py_UCS4* buf = <Py_UCS4*> malloc(sizeof(Py_UCS4) * (length + 1))
     if not buf:
         raise MemoryError("Failed to allocate memory for 'normalize' buffer.")
 
-    # c_prev is an int for easy use with chr() and membership checks.
-    cdef int c_prev = 0
-    cdef Py_UCS4 c
     cdef int pos = 0
     cdef bint lattin_space = False
+    cdef Py_UCS4 c
+    # c_prev is an int to match "old" code's usage (for membership checks).
+    cdef int c_prev = 0
 
     for ch in text:
-        c = <Py_UCS4>(ord(ch))
+        c = <Py_UCS4> ord(ch)
 
-        # 1) If the character is a space
+        #################################
+        # (1) If the character is a space
+        #################################
         if ch in SPACE:
-            c = <Py_UCS4>(ord(' '))
-            # Compare with previous char from the buffer.
-            if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
-                # Skip repeated space if removal is enabled or previous is in blocks.
-                if remove_space or (chr(c_prev) in blocks):
+            # unify to ASCII space
+            c = <Py_UCS4>ord(' ')
+
+            # old logic:
+            # if pos>0 and the last stored char == ' '
+            #     skip repeated space if remove_space OR previous was in blocks
+            if pos > 0 and <int>buf[pos - 1] == ord(' '):
+                if remove_space or (blocks.count(<Py_UCS4>c_prev) != 0):
                     continue
-            elif c_prev != ord('*') and pos > 0 and (chr(c_prev) in basic_latin):
+
+            # elif c_prev != ord('*') and pos>0 and previous is in basic_latin
+            #     set lattin_space = True
+            #     store c
+            elif c_prev != ord('*') and pos > 0 and basic_latin.count(<Py_UCS4>c_prev) != 0:
                 lattin_space = True
                 buf[pos] = c
+
+            # elif remove_space and pos>0
+            #     pos -= 1
             elif remove_space and pos > 0:
                 pos -= 1
+
             else:
                 buf[pos] = c
 
-        # 2) Hyphens: unify to '-'
+        ########################
+        # (2) Hyphens => '-'
+        ########################
         elif ch in HIPHENS:
             if c_prev == ord('-'):
                 continue
             else:
-                c = <Py_UCS4>(ord('-'))
+                c = <Py_UCS4>ord('-')
                 buf[pos] = c
 
-        # 3) Choonpus: unify to 'ー'
+        ########################
+        # (3) Choonpus => 'ー'
+        ########################
         elif ch in CHOONPUS:
             if c_prev == ord('ー'):
                 continue
             else:
-                c = <Py_UCS4>(ord('ー'))
+                c = <Py_UCS4>ord('ー')
                 buf[pos] = c
 
-        # 4) Tildes: based on tilde argument
+        ########################
+        # (4) Tildes
+        ########################
         elif ch in TILDES:
             if tilde == u'ignore':
+                # just store it as-is
                 buf[pos] = c
             elif tilde == u'normalize':
-                c = <Py_UCS4>(ord('~'))
+                c = <Py_UCS4>ord('~')
                 buf[pos] = c
             elif tilde == u'normalize_zenkaku':
-                c = <Py_UCS4>(ord('〜'))
+                c = <Py_UCS4>ord('〜')
                 buf[pos] = c
             else:
+                # "remove" => skip
                 continue
 
-        # 5) Otherwise: perform conversion
+        ########################
+        # (5) Otherwise: conversions
+        ########################
         else:
-            if ch in conversion_map:
-                c = <Py_UCS4>(ord(conversion_map[ch]))
-            if c == <Py_UCS4>(ord('ﾞ')) and pos > 0 and (chr(c_prev) in kana_ten_map):
+            # If in conversion_map, replace
+            if conversion_map.count(c) != 0:
+                c = conversion_map[c]
+
+            # If c == 'ﾞ' and the previous char in the buffer can combine (kana_ten_map)
+            if c == ord('ﾞ') and pos > 0 and kana_ten_map.count(<Py_UCS4>c_prev) != 0:
+                # Move pos back, then store the combined form
                 pos -= 1
-                combined = kana_ten_map[chr(c_prev)]
-                c = <Py_UCS4>(ord(combined[0]))
+                c = kana_ten_map[<Py_UCS4>c_prev]
                 buf[pos] = c
-            elif c == <Py_UCS4>(ord('ﾟ')) and pos > 0 and (chr(c_prev) in kana_maru_map):
+
+            # If c == 'ﾟ' and the previous char can combine (kana_maru_map)
+            elif c == ord('ﾟ') and pos > 0 and kana_maru_map.count(<Py_UCS4>c_prev) != 0:
                 pos -= 1
-                combined = kana_maru_map[chr(c_prev)]
-                c = <Py_UCS4>(ord(combined[0]))
+                c = kana_maru_map[<Py_UCS4>c_prev]
                 buf[pos] = c
+
             else:
-                if lattin_space and (chr(<int>c) in blocks) and remove_space and pos > 0:
+                # If we had a "lattin_space" and the new char is in blocks,
+                # and remove_space => remove that space by stepping back
+                if lattin_space and (blocks.count(c) != 0) and remove_space and pos > 0:
                     pos -= 1
+
                 lattin_space = False
                 buf[pos] = c
 
-        # Save the current code point as an int for future comparisons.
+        # Update c_prev from the newly stored character
         c_prev = <int> buf[pos]
         pos += 1
 
-    # If the final character is a space, remove it.
-    if pos > 0 and (<int> buf[pos - 1]) == ord(' '):
+    #################################
+    # If final character is ' ', remove it
+    #################################
+    if pos > 0 and <int>buf[pos - 1] == ord(' '):
         pos -= 1
 
-    # Create the final Python Unicode object from the UCS4 data.
-    cdef object py_obj = PyUnicode_FromKindAndData(
-        PyUnicode_4BYTE_KIND,
-        <const void*> buf,
-        pos
-    )
+    #################################
+    # Build final Unicode from the UCS4 data
+    #################################
+    # We put a null at the end of the buffer so CPython won't overread
+    buf[pos] = 0
+
+    # Convert to a Python unicode object
+    cdef unicode out = (<Py_UNICODE *>buf)[:pos]  # Slicing in Cython builds a PyUnicode
+
+    # Free the buffer
     free(buf)
 
-    if py_obj is None:
-        raise MemoryError("Failed to create Python string from UCS4 data.")
-
+    #################################
+    # Apply repeat-shortening if needed
+    #################################
     if repeat > 0:
-        return shorten_repeat(<unicode>py_obj, repeat, max_repeat_substr_length)
-    return <unicode>py_obj
+        return shorten_repeat(out, repeat, max_repeat_substr_length)
+    return out
